@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
   --font-plus-jakarta: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --background: #F8FAFC;
-  --foreground: #0F172A;
+  --background: #FFFFFF;
+  --foreground: #001845;
+  --brand-blue: #0466c8;
+  --brand-neon: #FF5500;
 }
 
 body {
@@ -19,13 +21,18 @@ body {
   overflow-x: hidden;
 }
 
+::selection {
+  background-color: #FF5500;
+  color: #FFFFFF;
+}
+
 /* Custom design accents matching the reference aesthetic */
 .pill-button {
-  @apply inline-flex items-center justify-center font-medium rounded-full transition-all duration-200;
+  @apply inline-flex items-center justify-center font-bold rounded-full transition-all duration-200;
 }
 
 .card-rounded {
-  @apply rounded-3xl bg-white border border-slate-100/80 shadow-card hover:shadow-float transition-all duration-300;
+  @apply rounded-3xl bg-white border border-slate-100 shadow-card hover:shadow-float transition-all duration-300;
 }
 
 .glass-pill {

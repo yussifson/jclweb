@@ -7,7 +7,7 @@ import PropertyCard from '@/components/PropertyCard';
 import PropertyModal from '@/components/PropertyModal';
 import InquiryModal from '@/components/InquiryModal';
 import { MOCK_PROPERTIES, Property } from '@/data/mockData';
-import { Search, SlidersHorizontal, ArrowUpDown, Filter, Sparkles } from 'lucide-react';
+import { Search, Sparkles } from 'lucide-react';
 
 export default function PropertiesPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -28,7 +28,6 @@ export default function PropertiesPage() {
 
   const filteredProperties = useMemo(() => {
     return MOCK_PROPERTIES.filter((prop) => {
-      // Category filter
       if (selectedCategory !== 'all' && prop.category !== selectedCategory) {
         if (selectedCategory === 'house' && prop.category !== 'villa' && prop.category !== 'house') {
           return false;
@@ -38,23 +37,19 @@ export default function PropertiesPage() {
         }
       }
 
-      // Sale vs Rent
       if (selectedType !== 'all' && prop.type !== selectedType) {
         return false;
       }
 
-      // Location filter
       if (selectedLocation !== 'all' && !prop.city.toLowerCase().includes(selectedLocation.toLowerCase()) && !prop.address.toLowerCase().includes(selectedLocation.toLowerCase())) {
         return false;
       }
 
-      // Beds filter
       if (selectedBeds !== 'all') {
         if (selectedBeds === '4+' && prop.bedrooms < 4) return false;
         if (selectedBeds !== '4+' && prop.bedrooms !== parseInt(selectedBeds)) return false;
       }
 
-      // Search Query
       if (searchQuery.trim() !== '') {
         const q = searchQuery.toLowerCase();
         const matchesTitle = prop.title.toLowerCase().includes(q);
@@ -68,34 +63,34 @@ export default function PropertiesPage() {
       if (sortBy === 'price-low') return a.price - b.price;
       if (sortBy === 'price-high') return b.price - a.price;
       if (sortBy === 'sqft') return b.sqft - a.sqft;
-      return 0; // Default
+      return 0;
     });
   }, [selectedCategory, selectedType, selectedLocation, selectedBeds, searchQuery, sortBy]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC]">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar onOpenInquiry={() => setInquiryOpen(true)} />
 
       <main className="flex-grow pt-28 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header Banner */}
           <div className="mb-10 text-center max-w-2xl mx-auto">
-            <span className="inline-flex items-center space-x-1 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 mb-3">
-              <Sparkles className="w-3.5 h-3.5 text-[#C59B27]" />
+            <span className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-xs font-bold text-[#0466c8] mb-3">
+              <Sparkles className="w-3.5 h-3.5 text-[#FF5500]" />
               <span>Verified Real Estate Catalog</span>
             </span>
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+            <h1 className="text-3xl sm:text-5xl font-extrabold text-[#001845] tracking-tight">
               Curated Properties &amp; Estates
             </h1>
             <p className="mt-2 text-sm text-slate-500">
-              Browse premier luxury residences, urban suites, and commercial office developments.
+              Browse premier luxury residences, urban suites, and commercial hubs in Airport Residential, Cantonments, East Legon, and coastal areas.
             </p>
           </div>
 
           {/* Filter Bar */}
-          <div className="bg-white rounded-3xl p-4 sm:p-6 border border-slate-100 shadow-card mb-10 space-y-4">
+          <div className="bg-slate-50 rounded-3xl p-4 sm:p-6 border border-slate-100 shadow-card mb-10 space-y-4">
             {/* Category Chips & Sale/Rent Toggle */}
-            <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
+            <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-200">
               <div className="flex flex-wrap items-center gap-2">
                 {categories.map((cat) => (
                   <button
@@ -103,8 +98,8 @@ export default function PropertiesPage() {
                     onClick={() => setSelectedCategory(cat.id)}
                     className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
                       selectedCategory === cat.id
-                        ? 'bg-brand-dark text-white shadow-sm'
-                        : 'bg-slate-50 text-slate-600 hover:bg-slate-100'
+                        ? 'bg-[#0466c8] text-white shadow-md'
+                        : 'bg-white text-slate-700 hover:bg-blue-50 hover:text-[#0466c8] border border-slate-200'
                     }`}
                   >
                     {cat.label}
@@ -112,15 +107,15 @@ export default function PropertiesPage() {
                 ))}
               </div>
 
-              <div className="flex items-center space-x-1 bg-slate-100 p-1 rounded-full text-xs font-bold">
+              <div className="flex items-center space-x-1 bg-white p-1 rounded-full text-xs font-bold border border-slate-200">
                 {['all', 'sale', 'rent'].map((t) => (
                   <button
                     key={t}
                     onClick={() => setSelectedType(t)}
                     className={`px-3.5 py-1.5 rounded-full capitalize transition-all ${
                       selectedType === t
-                        ? 'bg-white text-brand-dark shadow-sm'
-                        : 'text-slate-600 hover:text-brand-dark'
+                        ? 'bg-[#FF5500] text-white shadow-sm'
+                        : 'text-slate-600 hover:text-[#0466c8]'
                     }`}
                   >
                     {t === 'all' ? 'All Status' : `For ${t}`}
@@ -138,8 +133,8 @@ export default function PropertiesPage() {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search address, name..."
-                  className="w-full pl-9 pr-3.5 py-2.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-brand-dark"
+                  placeholder="Search address, neighborhood..."
+                  className="w-full pl-9 pr-3.5 py-2.5 rounded-2xl bg-white border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0466c8]"
                 />
               </div>
 
@@ -148,12 +143,13 @@ export default function PropertiesPage() {
                 <select
                   value={selectedLocation}
                   onChange={(e) => setSelectedLocation(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-800 font-semibold focus:outline-none focus:border-brand-dark cursor-pointer"
+                  className="w-full px-3.5 py-2.5 rounded-2xl bg-white border border-slate-200 text-xs text-slate-800 font-bold focus:outline-none focus:border-[#0466c8] cursor-pointer"
                 >
                   <option value="all">All Locations</option>
-                  <option value="San Jose">San Jose, CA</option>
-                  <option value="Accra">Accra, Ghana</option>
-                  <option value="New York">New York, NY</option>
+                  <option value="Accra">Accra (Airport, East Legon, Cantonments)</option>
+                  <option value="Prampram">Prampram Coastal Enclave</option>
+                  <option value="Aburi">Aburi Hilltop</option>
+                  <option value="San Jose">San Jose Partner Enclave</option>
                 </select>
               </div>
 
@@ -162,7 +158,7 @@ export default function PropertiesPage() {
                 <select
                   value={selectedBeds}
                   onChange={(e) => setSelectedBeds(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-800 font-semibold focus:outline-none focus:border-brand-dark cursor-pointer"
+                  className="w-full px-3.5 py-2.5 rounded-2xl bg-white border border-slate-200 text-xs text-slate-800 font-bold focus:outline-none focus:border-[#0466c8] cursor-pointer"
                 >
                   <option value="all">Any Bedrooms</option>
                   <option value="1">1 Bedroom</option>
@@ -176,7 +172,7 @@ export default function PropertiesPage() {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-800 font-semibold focus:outline-none focus:border-brand-dark cursor-pointer"
+                  className="w-full px-3.5 py-2.5 rounded-2xl bg-white border border-slate-200 text-xs text-slate-800 font-bold focus:outline-none focus:border-[#0466c8] cursor-pointer"
                 >
                   <option value="featured">Sort by: Featured</option>
                   <option value="price-low">Price: Low to High</option>
@@ -201,7 +197,7 @@ export default function PropertiesPage() {
                   setSelectedBeds('all');
                   setSearchQuery('');
                 }}
-                className="text-xs font-bold text-blue-600 hover:underline"
+                className="text-xs font-bold text-[#FF5500] hover:underline"
               >
                 Reset all filters
               </button>
@@ -221,7 +217,7 @@ export default function PropertiesPage() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-20 bg-white rounded-3xl border border-slate-100">
+            <div className="text-center py-20 bg-slate-50 rounded-3xl border border-slate-100">
               <p className="text-slate-500 text-sm font-semibold">No properties matched your filter criteria.</p>
               <button
                 onClick={() => {
@@ -231,7 +227,7 @@ export default function PropertiesPage() {
                   setSelectedBeds('all');
                   setSearchQuery('');
                 }}
-                className="mt-4 px-6 py-2.5 rounded-full bg-brand-dark text-white text-xs font-bold"
+                className="mt-4 px-6 py-2.5 rounded-full bg-[#0466c8] text-white text-xs font-bold"
               >
                 Clear Filters
               </button>

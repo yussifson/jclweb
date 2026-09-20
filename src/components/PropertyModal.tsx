@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { X, Bed, Bath, Square, MapPin, CheckCircle, Phone, Mail, Sparkles } from 'lucide-react';
+import { X, Bed, Bath, Square, MapPin, CheckCircle, Phone, Sparkles } from 'lucide-react';
 import { Property } from '@/data/mockData';
 
 interface PropertyModalProps {
@@ -20,21 +20,21 @@ export default function PropertyModal({ property, onClose, onBookTour }: Propert
   const images = property.gallery && property.gallery.length > 0 ? property.gallery : [property.image];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/70 backdrop-blur-sm overflow-y-auto animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-[#001845]/70 backdrop-blur-sm overflow-y-auto animate-fadeIn">
       <div className="relative w-full max-w-4xl bg-white rounded-3xl shadow-modal overflow-hidden border border-slate-100 my-auto">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-slate-700 hover:text-black hover:bg-white shadow-md transition-colors"
+          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/95 backdrop-blur-md flex items-center justify-center text-slate-700 hover:text-black hover:bg-white shadow-md transition-colors"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
         </button>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 max-h-[85vh] overflow-y-auto">
-          {/* Left / Top: Gallery */}
-          <div className="lg:col-span-7 bg-slate-900 p-4 flex flex-col">
-            <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-800 mb-3 shadow-inner">
+          {/* Left: Gallery */}
+          <div className="lg:col-span-7 bg-[#001845] p-4 flex flex-col justify-between">
+            <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-900 mb-3 shadow-inner">
               <Image
                 src={images[activeImage]}
                 alt={property.title}
@@ -43,13 +43,13 @@ export default function PropertyModal({ property, onClose, onBookTour }: Propert
                 className="object-cover"
               />
               <div className="absolute top-3 left-3">
-                <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-semibold">
+                <span className="px-3 py-1 rounded-full bg-[#FF5500] text-white text-xs font-bold shadow-sm">
                   {property.statusTag}
                 </span>
               </div>
             </div>
 
-            {/* Thumbnail selector */}
+            {/* Thumbnails */}
             {images.length > 1 && (
               <div className="flex gap-2 overflow-x-auto pb-1">
                 {images.map((img, i) => (
@@ -57,7 +57,7 @@ export default function PropertyModal({ property, onClose, onBookTour }: Propert
                     key={i}
                     onClick={() => setActiveImage(i)}
                     className={`relative w-16 h-12 rounded-xl overflow-hidden shrink-0 border-2 transition-all ${
-                      activeImage === i ? 'border-brand-gold scale-105' : 'border-transparent opacity-60 hover:opacity-100'
+                      activeImage === i ? 'border-[#FF5500] scale-105' : 'border-transparent opacity-60 hover:opacity-100'
                     }`}
                   >
                     <Image src={img} alt="thumbnail" fill className="object-cover" />
@@ -67,14 +67,14 @@ export default function PropertyModal({ property, onClose, onBookTour }: Propert
             )}
           </div>
 
-          {/* Right: Details & Agent Consultation */}
+          {/* Right: Details */}
           <div className="lg:col-span-5 p-6 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#FF5500]">
                   {property.category.toUpperCase()}
                 </span>
-                <span className="text-2xl font-black text-brand-dark tracking-tight">
+                <span className="text-2xl font-black text-[#001845] tracking-tight">
                   {property.priceFormatted}
                 </span>
               </div>
@@ -84,23 +84,23 @@ export default function PropertyModal({ property, onClose, onBookTour }: Propert
               </h2>
 
               <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-4">
-                <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                <MapPin className="w-3.5 h-3.5 text-[#FF5500] shrink-0" />
                 <span>{property.address}</span>
               </div>
 
               {/* Specs Pills */}
-              <div className="grid grid-cols-3 gap-2 bg-slate-50 p-3 rounded-2xl mb-4 text-center">
+              <div className="grid grid-cols-3 gap-2 bg-blue-50/60 p-3 rounded-2xl mb-4 text-center border border-blue-100">
                 <div>
-                  <span className="block text-[11px] text-slate-400 font-medium">Beds</span>
-                  <span className="text-xs font-bold text-slate-800">{property.bedrooms}</span>
+                  <span className="block text-[11px] text-slate-500 font-medium">Beds</span>
+                  <span className="text-xs font-bold text-[#0466c8]">{property.bedrooms}</span>
                 </div>
                 <div>
-                  <span className="block text-[11px] text-slate-400 font-medium">Baths</span>
-                  <span className="text-xs font-bold text-slate-800">{property.bathrooms}</span>
+                  <span className="block text-[11px] text-slate-500 font-medium">Baths</span>
+                  <span className="text-xs font-bold text-[#0466c8]">{property.bathrooms}</span>
                 </div>
                 <div>
-                  <span className="block text-[11px] text-slate-400 font-medium">Living Space</span>
-                  <span className="text-xs font-bold text-slate-800">{property.sqft.toLocaleString()} sqft</span>
+                  <span className="block text-[11px] text-slate-500 font-medium">Living Space</span>
+                  <span className="text-xs font-bold text-[#0466c8]">{property.sqft.toLocaleString()} sqft</span>
                 </div>
               </div>
 
@@ -109,7 +109,7 @@ export default function PropertyModal({ property, onClose, onBookTour }: Propert
                 {property.description}
               </p>
 
-              {/* Features checklist */}
+              {/* Key Amenities */}
               <div className="mb-4">
                 <span className="text-[11px] font-bold text-slate-800 uppercase tracking-wider block mb-2">
                   Key Amenities
@@ -125,15 +125,15 @@ export default function PropertyModal({ property, onClose, onBookTour }: Propert
               </div>
             </div>
 
-            {/* Agent / Contact box */}
+            {/* Agent / Contact */}
             <div className="pt-4 border-t border-slate-100 mt-auto">
               <div className="flex items-center gap-3 mb-3">
-                <div className="relative w-11 h-11 rounded-full overflow-hidden bg-slate-100 shrink-0">
+                <div className="relative w-11 h-11 rounded-full overflow-hidden bg-slate-100 shrink-0 ring-1 ring-blue-200">
                   <Image src={property.agent.image} alt={property.agent.name} fill className="object-cover" />
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-slate-900">{property.agent.name}</h4>
-                  <p className="text-[11px] text-slate-500">{property.agent.role}</p>
+                  <p className="text-[11px] text-[#0466c8] font-semibold">{property.agent.role}</p>
                 </div>
               </div>
 
@@ -145,10 +145,10 @@ export default function PropertyModal({ property, onClose, onBookTour }: Propert
                 <button
                   type="button"
                   onClick={() => setFormSubmitted(true)}
-                  className="w-full py-3 rounded-2xl bg-brand-dark text-white text-xs font-bold hover:bg-slate-800 transition-all flex items-center justify-center space-x-2 shadow-md"
+                  className="w-full py-3 rounded-2xl bg-[#0466c8] hover:bg-[#034078] text-white text-xs font-bold transition-all flex items-center justify-center space-x-2 shadow-md hover:scale-[1.01]"
                 >
-                  <Sparkles className="w-4 h-4 text-brand-gold" />
-                  <span>Request Private Tour &amp; Inspection</span>
+                  <Sparkles className="w-4 h-4 text-[#FF5500]" />
+                  <span>Request Guided Inspection Tour</span>
                 </button>
               )}
             </div>
