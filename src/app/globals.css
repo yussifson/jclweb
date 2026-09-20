@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --font-plus-jakarta: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+}
+
+body {
+  font-family: var(--font-plus-jakarta);
+  color: var(--foreground);
+  background-color: var(--background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom design accents matching the reference aesthetic */
+.pill-button {
+  @apply inline-flex items-center justify-center font-medium rounded-full transition-all duration-200;
+}
+
+.card-rounded {
+  @apply rounded-3xl bg-white border border-slate-100/80 shadow-card hover:shadow-float transition-all duration-300;
+}
+
+.glass-pill {
+  @apply bg-white/80 backdrop-blur-md border border-white/40 shadow-sm;
+}
+
+/* Hide scrollbar for clean filter chip carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
