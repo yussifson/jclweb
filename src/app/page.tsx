@@ -76,7 +76,7 @@ export default function Home() {
 
             {/* Subtext */}
             <p className="text-base sm:text-lg text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed pt-2">
-              JCL Royal Group is Ghana&apos;s trusted real estate and land development company. We deliver 100% litigation-free titled land, turnkey master-built residential villas, commercial facilities, and genuine Tonefo smart electrical gadgets.
+              JCL Royal Group is Ghana&apos;s trusted real estate and land development company. We deliver 100% litigation-free titled land, turnkey master-built residential villas, bespoke interior decoration, commercial facilities, and genuine Tonefo smart electrical gadgets.
             </p>
 
             {/* CTA Buttons */}

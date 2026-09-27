@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { X, CheckCircle2, Sparkles, Building2, Compass, HardHat, Zap, MessageCircle } from 'lucide-react';
+import { X, CheckCircle2, Sparkles, Building2, Compass, HardHat, Zap, MessageCircle, Palette } from 'lucide-react';
 import { COMPANY_INFO } from '@/data/mockData';
 
 interface InquiryModalProps {
@@ -81,15 +81,16 @@ export default function InquiryModal({ isOpen, onClose, defaultService }: Inquir
               Book a Consultation or Tour
             </h3>
             <p className="text-slate-500 text-xs md:text-sm mb-6">
-              Connect directly with our real estate brokers, chartered land surveyors, and Tonefo gadget technicians.
+              Connect directly with our real estate brokers, chartered land surveyors, interior designers, and Tonefo gadget team.
             </p>
 
             {/* Service Selector Tabs */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5">
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-5">
               {[
-                { id: 'real-estate', label: 'Property Sales', icon: Building2 },
+                { id: 'real-estate', label: 'Property', icon: Building2 },
                 { id: 'land', label: 'Titled Land', icon: Compass },
                 { id: 'engineering', label: 'Construction', icon: HardHat },
+                { id: 'interior-deco', label: 'Interior Deco', icon: Palette },
                 { id: 'tonefo', label: 'Tonefo Gadgets', icon: Zap },
               ].map((item) => {
                 const Icon = item.icon;
@@ -99,13 +100,13 @@ export default function InquiryModal({ isOpen, onClose, defaultService }: Inquir
                     key={item.id}
                     type="button"
                     onClick={() => setService(item.id)}
-                    className={`flex flex-col items-center justify-center p-2.5 rounded-2xl border text-xs font-bold transition-all ${
+                    className={`flex flex-col items-center justify-center p-2 rounded-2xl border text-[11px] font-bold transition-all ${
                       isSelected
                         ? 'border-[#0466c8] bg-[#0466c8] text-white shadow-sm'
                         : 'border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100'
                     }`}
                   >
-                    <Icon className="w-4 h-4 mb-1" />
+                    <Icon className="w-3.5 h-3.5 mb-1" />
                     <span>{item.label}</span>
                   </button>
                 );

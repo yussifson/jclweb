@@ -187,6 +187,7 @@ export default function ContactPage() {
                         >
                           <option>Titled Land Acquisition &amp; Due Diligence</option>
                           <option>Turnkey Residential &amp; Villa Building</option>
+                          <option>Interior Decoration &amp; Bespoke Fit-outs</option>
                           <option>Commercial Complex Construction</option>
                           <option>Tonefo Gadgets &amp; Solar Microgrids</option>
                         </select>

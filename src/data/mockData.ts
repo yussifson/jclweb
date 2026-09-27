@@ -44,6 +44,8 @@ export interface ServicePillar {
   title: string;
   tagline: string;
   iconName: string;
+  badge?: string;
+  image: string;
   description: string;
   deliverables: string[];
   workflow: { step: string; title: string; desc: string }[];
@@ -439,9 +441,11 @@ export const SERVICE_PILLARS: ServicePillar[] = [
     title: 'Litigation-Free Land Sales & Acquisition',
     tagline: 'Guaranteed legal certainty, registered title deeds, and cadastral survey accuracy.',
     iconName: 'ShieldCheck',
-    description: 'We eliminate land disputes completely. Every acre in our portfolio undergoes thorough Lands Commission validation, traditional authority sign-off, and judicial search before allocation.',
+    badge: 'Legal Due Diligence',
+    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80',
+    description: 'We eliminate land disputes completely. Every acre in our portfolio undergoes thorough Lands Commission validation, traditional stool authority sign-off, and judicial search before allocation.',
     deliverables: [
-      'Lands Commission official search report',
+      'Lands Commission official search report & certification',
       'Barcoded site plan signed by licensed surveyor',
       'Indentures and registered title transfer documents',
       'Free guided on-site inspection and beacon identification'
@@ -457,6 +461,8 @@ export const SERVICE_PILLARS: ServicePillar[] = [
     title: 'Turnkey Building & Civil Construction',
     tagline: 'From architectural concept to full structural completion with uncompromised quality.',
     iconName: 'Building2',
+    badge: '10-Yr Warranty',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
     description: 'We provide end-to-end building construction for private villas, residential estates, and commercial structures with strict adherence to structural engineering standards.',
     deliverables: [
       'Architectural 3D renderings and structural engineering blueprints',
@@ -467,7 +473,28 @@ export const SERVICE_PILLARS: ServicePillar[] = [
     workflow: [
       { step: '01', title: 'Architectural Design & BOQ', desc: 'Custom structural design tailored to your lifestyle and land topography.' },
       { step: '02', title: 'Milestone-Based Construction', desc: 'Foundations, blockwork, lintels, and roofing with photo updates.' },
-      { step: '03', title: 'Interior Finishing & Key Handover', desc: 'Premium tiling, electricals, plumbing, and turnkey walk-through.' }
+      { step: '03', title: 'Finishing & Key Handover', desc: 'Premium tiling, electricals, plumbing, and turnkey walk-through.' }
+    ]
+  },
+  {
+    id: 'service-interior-deco',
+    title: 'Interior Decoration & Bespoke Fit-outs',
+    tagline: 'High-end interior architecture, bespoke millwork, curated furnishings, and luxury spatial transformations.',
+    iconName: 'Sparkles',
+    badge: 'Luxury Styling',
+    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80',
+    description: 'We transform residential villas, penthouses, executive offices, and hospitality spaces with bespoke interior styling. From custom lighting architecture, luxury acoustic wall paneling, Italian imported marble tiling to turnkey furnishings and art curation.',
+    deliverables: [
+      'Photorealistic 3D interior renders & bespoke mood boards',
+      'Custom cabinetry, tailored millwork & acoustic paneling',
+      'Imported Italian & Turkish luxury furniture curation',
+      'Tonefo integrated ambient architectural lighting & motorized drapery',
+      'Turnkey white-glove staging and reveal'
+    ],
+    workflow: [
+      { step: '01', title: 'Spatial Concept & 3D Renderings', desc: 'Interior architecture consultation, material palette selection, and photorealistic 3D modeling.' },
+      { step: '02', title: 'Bespoke Fabrication & Sourcing', desc: 'Precision millwork, marble fitting, and imported designer furniture procurement.' },
+      { step: '03', title: 'White-Glove Staging & Handover', desc: 'On-site installation, ambient lighting calibration, and turnkey styling reveal.' }
     ]
   },
   {
@@ -475,6 +502,8 @@ export const SERVICE_PILLARS: ServicePillar[] = [
     title: 'Tonefo Gadgets & Smart Electricals',
     tagline: 'Direct sourcing of genuine electronics, smart home tech, and renewable energy gadgets.',
     iconName: 'Zap',
+    badge: 'Tonefo Division',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
     description: 'Our specialized retail and distribution arm delivers authentic electronics, solar power systems, and smart home appliances with direct manufacturer warranty.',
     deliverables: [
       'Authentic branded electronics and mobile devices',
@@ -493,6 +522,8 @@ export const SERVICE_PILLARS: ServicePillar[] = [
     title: 'Cadastral Surveying & Land Regularization',
     tagline: 'Professional GPS boundary demarcation and Lands Commission title registration.',
     iconName: 'Target',
+    badge: 'GPS Beacons',
+    image: 'https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?auto=format&fit=crop&w=1200&q=80',
     description: 'Licensed surveyors and legal advisors assist private owners and corporate entities in mapping, resolving boundary questions, and securing official land title certificates.',
     deliverables: [
       'High-precision GPS cadastral survey with boundary beacons',
