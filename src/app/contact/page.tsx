@@ -50,30 +50,32 @@ export default function ContactPage() {
             
             {/* Left Column: Contact Information Cards */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="bg-[#F8FAFC] rounded-[32px] p-8 border border-slate-200/90 shadow-xl space-y-6">
-                <h3 className="text-xl font-extrabold text-[#001845] flex items-center gap-2">
-                  <Building2 className="w-5 h-5 text-[#0466c8]" />
+              <div className="bg-gradient-to-br from-[#001845] via-[#0466c8] to-[#001233] text-white rounded-[32px] p-8 shadow-2xl space-y-6 relative overflow-hidden border border-blue-400/20">
+                <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-blue-400/15 blur-3xl pointer-events-none" />
+                
+                <h3 className="text-xl font-extrabold text-white flex items-center gap-2 relative z-10">
+                  <Building2 className="w-5 h-5 text-[#FF5500]" />
                   <span>Headquarters &amp; Principal Office</span>
                 </h3>
 
-                <div className="space-y-5 text-xs sm:text-sm text-slate-600">
+                <div className="space-y-5 text-xs sm:text-sm text-blue-100 relative z-10">
                   <div className="flex items-start space-x-3.5">
                     <MapPin className="w-5 h-5 text-[#FF5500] shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-extrabold text-slate-900 block">Principal Location</span>
-                      <span className="font-medium">{COMPANY_INFO.address}</span>
+                      <span className="font-extrabold text-white block">Principal Location</span>
+                      <span className="font-medium text-slate-200">{COMPANY_INFO.address}</span>
                     </div>
                   </div>
 
                   <div className="flex items-start space-x-3.5">
-                    <Phone className="w-5 h-5 text-[#0466c8] shrink-0 mt-0.5" />
+                    <Phone className="w-5 h-5 text-blue-300 shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-extrabold text-slate-900 block">Telephone &amp; WhatsApp Lines</span>
-                      <div className="space-y-1 mt-1 text-slate-700 font-bold">
-                        <div>{COMPANY_INFO.phones[0].label}: <a href={`tel:${COMPANY_INFO.phones[0].clean}`} className="text-[#0466c8] hover:underline">{COMPANY_INFO.phones[0].number}</a></div>
-                        <div>Line 1: <a href={`tel:${COMPANY_INFO.phones[1].clean}`} className="text-[#0466c8] hover:underline">{COMPANY_INFO.phones[1].number}</a></div>
-                        <div>Line 2: <a href={`tel:${COMPANY_INFO.phones[2].clean}`} className="text-[#0466c8] hover:underline">{COMPANY_INFO.phones[2].number}</a></div>
-                        <div>Line 3: <a href={`tel:${COMPANY_INFO.phones[3].clean}`} className="text-[#0466c8] hover:underline">{COMPANY_INFO.phones[3].number}</a></div>
+                      <span className="font-extrabold text-white block">Telephone &amp; WhatsApp Lines</span>
+                      <div className="space-y-1 mt-1 text-slate-100 font-bold">
+                        <div>{COMPANY_INFO.phones[0].label}: <a href={`tel:${COMPANY_INFO.phones[0].clean}`} className="text-white hover:underline">{COMPANY_INFO.phones[0].number}</a></div>
+                        <div>Line 1: <a href={`tel:${COMPANY_INFO.phones[1].clean}`} className="text-white hover:underline">{COMPANY_INFO.phones[1].number}</a></div>
+                        <div>Line 2: <a href={`tel:${COMPANY_INFO.phones[2].clean}`} className="text-white hover:underline">{COMPANY_INFO.phones[2].number}</a></div>
+                        <div>Line 3: <a href={`tel:${COMPANY_INFO.phones[3].clean}`} className="text-white hover:underline">{COMPANY_INFO.phones[3].number}</a></div>
                       </div>
                     </div>
                   </div>
@@ -81,26 +83,26 @@ export default function ContactPage() {
                   <div className="flex items-start space-x-3.5">
                     <Mail className="w-5 h-5 text-[#FF5500] shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-extrabold text-slate-900 block">Official Email</span>
-                      <a href={`mailto:${COMPANY_INFO.email}`} className="text-[#0466c8] font-bold hover:underline">{COMPANY_INFO.email}</a>
+                      <span className="font-extrabold text-white block">Official Email</span>
+                      <a href={`mailto:${COMPANY_INFO.email}`} className="text-white font-bold hover:underline">{COMPANY_INFO.email}</a>
                     </div>
                   </div>
 
                   <div className="flex items-start space-x-3.5">
-                    <Clock className="w-5 h-5 text-[#0466c8] shrink-0 mt-0.5" />
+                    <Clock className="w-5 h-5 text-blue-300 shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-extrabold text-slate-900 block">Operating Hours</span>
-                      <span className="font-medium">Monday – Friday: 8:00 AM – 5:30 PM (GMT)<br />Saturday: 9:00 AM – 3:00 PM (Site Tours)</span>
+                      <span className="font-extrabold text-white block">Operating Hours</span>
+                      <span className="font-medium text-slate-200">Monday – Friday: 8:00 AM – 5:30 PM (GMT)<br />Saturday: 9:00 AM – 3:00 PM (Site Tours)</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-slate-200">
+                <div className="pt-4 border-t border-white/20 relative z-10">
                   <a
                     href={COMPANY_INFO.social.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs flex items-center justify-center space-x-2 shadow-md transition-all hover:scale-[1.01]"
+                    className="w-full py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs flex items-center justify-center space-x-2 shadow-md transition-all hover:scale-[1.01]"
                   >
                     <MessageCircle className="w-4 h-4 fill-white" />
                     <span>Instant WhatsApp Chat (+233 55 786 0299)</span>

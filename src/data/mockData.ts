@@ -623,29 +623,29 @@ export const MOCK_FAQS: FAQItem[] = [
 export const MOCK_TESTIMONIALS: Testimonial[] = [
   {
     id: 'test-1',
-    quote: 'Buying land in Ghana was something I feared due to family litigation stories. JCL Royal Group changed everything. Mr. Eric Kwaw and his team provided barcoded survey plans, assisted with the Lands Commission title, and within 3 weeks I had full possession of my registered parcel.',
-    author: 'Kofi Mensah Boateng',
-    title: 'Diaspora Investor (London, UK)',
-    location: 'Acquired 2 Residential Plots',
+    quote: 'We found a home that matched our budget and move-in timeline. The process was clear, fast, and handled professionally from the first call to the final paperwork.',
+    author: 'Wilhelmina T. Lartey',
+    title: 'Verified Property Buyer',
+    location: 'Accra, Ghana',
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'
+    avatar: 'https://res.cloudinary.com/dlhyawc5e/image/upload/v1779223266/WILHELMINA_T._LARTEY_sjzlr4.png'
   },
   {
     id: 'test-2',
-    quote: 'JCL handled our 4-bedroom villa construction from foundation to final paint. The project was completed on schedule with weekly video updates. The integration of Tonefo smart lighting and solar backup is flawless.',
-    author: 'Dr. Evelyn Ansah',
-    title: 'Resident Homeowner',
-    location: 'Custom Villa Development',
+    quote: 'JCL Group helped us secure the right property and gave practical advice every step of the way. The service felt personal and genuinely reliable.',
+    author: 'Lydia Narh',
+    title: 'Verified Homeowner',
+    location: 'Prampram, Ghana',
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80'
+    avatar: 'https://res.cloudinary.com/dlhyawc5e/image/upload/v1779223261/LYDIA_NARH_xf8cll.jpg'
   },
   {
     id: 'test-3',
-    quote: 'Tonefo gadgets and JCL land services are the most reliable in Accra. Transparent pricing, zero hidden fees, and prompt customer service every time.',
-    author: 'Samuel Osei-Tutu',
-    title: 'Commercial Developer',
-    location: 'Commercial Land & Sourcing',
+    quote: 'I ordered electrical gadgets for my home and the recommendations were spot on. Good value, great support, and delivery was handled without stress.',
+    author: 'Abdul-Razak Mustapha',
+    title: 'Tonefo Tech & Electricals Customer',
+    location: 'Greater Accra, Ghana',
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80'
+    avatar: 'https://res.cloudinary.com/dlhyawc5e/image/upload/v1779223265/ABDUL-RAZAK_MUSTAPHA_nzlqyn.png'
   }
 ];

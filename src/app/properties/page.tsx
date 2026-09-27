@@ -126,6 +126,35 @@ export default function PropertiesPage() {
             </div>
           )}
 
+          {/* Direct Custom Architectural Design Banner */}
+          <div className="mt-16 bg-gradient-to-br from-[#001845] via-[#0466c8] to-[#001233] text-white rounded-[36px] p-8 sm:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden border border-blue-400/20">
+            <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-blue-400/15 blur-3xl pointer-events-none" />
+            <div className="space-y-2 max-w-2xl text-center md:text-left relative z-10">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/15 backdrop-blur-md text-white text-xs font-bold border border-white/20">
+                <Sparkles className="w-4 h-4 text-[#FF5500]" />
+                <span>Custom Architectural Engineering</span>
+              </div>
+              <h4 className="text-xl sm:text-2xl font-extrabold text-white">
+                Have a Custom Architectural Concept in Mind?
+              </h4>
+              <p className="text-xs sm:text-sm text-blue-100 font-medium leading-relaxed">
+                Work directly with licensed architects and civil engineers to design, engineer, and build your bespoke luxury home on your land or our litigation-free parcels.
+              </p>
+            </div>
+            <div className="shrink-0 relative z-10">
+              <button
+                onClick={() => {
+                  setSelectedProperty(null);
+                  setInquiryOpen(true);
+                }}
+                className="px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#001845] font-extrabold text-sm transition-all shadow-xl inline-flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <span>Consult Engineering Lead</span>
+                <Building2 className="w-4 h-4 text-[#0466c8]" />
+              </button>
+            </div>
+          </div>
+
         </div>
       </main>
 

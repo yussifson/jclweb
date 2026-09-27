@@ -629,9 +629,12 @@ export default function Home() {
         ══════════════════════════════════════════════════════════════ */}
         <section className="py-20 bg-white border-t border-slate-200/80">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-white rounded-[36px] p-8 sm:p-12 border border-slate-200/90 shadow-2xl flex flex-col lg:flex-row items-center gap-8">
+            <div className="bg-gradient-to-br from-[#001845] via-[#0466c8] to-[#001233] text-white rounded-[36px] p-8 sm:p-12 shadow-2xl flex flex-col lg:flex-row items-center gap-8 relative overflow-hidden border border-blue-400/20">
               
-              <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-3xl overflow-hidden border-4 border-[#0466c8] shadow-lg shrink-0">
+              {/* Subtle background glow */}
+              <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-blue-400/10 blur-3xl pointer-events-none" />
+
+              <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-3xl overflow-hidden border-4 border-white/30 shadow-2xl shrink-0 bg-white/10">
                 <Image
                   src={COMPANY_INFO.ceo.image}
                   alt={COMPANY_INFO.ceo.name}
@@ -641,24 +644,25 @@ export default function Home() {
                 />
               </div>
 
-              <div className="space-y-3 text-center lg:text-left flex-grow">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0466c8]/10 text-[#0466c8] text-xs font-extrabold">
-                  <span>● Direct CEO &amp; Senior Engineering Leadership</span>
+              <div className="space-y-3 text-center lg:text-left flex-grow relative z-10">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/15 backdrop-blur-md text-white text-xs font-extrabold border border-white/20">
+                  <span className="w-2 h-2 rounded-full bg-[#FF5500] animate-ping" />
+                  <span>Direct CEO &amp; Senior Engineering Leadership</span>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-extrabold text-[#001845] tracking-tight leading-snug">
+                <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
                   &ldquo;You work directly with licensed surveyors, chartered civil engineers, and company leadership—with zero speculative markup or litigation risk.&rdquo;
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed max-w-3xl">
+                <p className="text-xs sm:text-sm text-blue-100 font-medium leading-relaxed max-w-3xl">
                   Led by <strong>Mr. Eric Kwaw</strong> (CEO &amp; Founder), every parcel allocation and turnkey construction contract is backed by rigorous Lands Commission searches, stamped barcoded coordinates, and clear contractual guarantees.
                 </p>
               </div>
 
-              <div className="shrink-0">
+              <div className="shrink-0 relative z-10">
                 <a
                   href={COMPANY_INFO.social.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-4 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm transition-all shadow-xl inline-flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
+                  className="px-8 py-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs sm:text-sm transition-all shadow-xl inline-flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <span>Direct WhatsApp Line</span>
                   <ArrowRight className="w-4 h-4" />
@@ -670,9 +674,9 @@ export default function Home() {
         </section>
 
         {/* ══════════════════════════════════════════════════════════════
-            8. CLIENT TESTIMONIALS SECTION
+            8. CLIENT TESTIMONIALS SECTION (AUTHENTIC VERIFIED DATA)
         ══════════════════════════════════════════════════════════════ */}
-        <section className="py-24 bg-[#F8FAFC] border-t border-slate-200/80">
+        <section className="py-24 bg-gradient-to-b from-[#F8FAFC] via-blue-50/20 to-white border-t border-slate-200/80">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             
             <div className="text-center max-w-3xl mx-auto space-y-3">
@@ -681,23 +685,44 @@ export default function Home() {
                 <span>Verified Client Stories</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-[#001845] tracking-tight">
-                Trusted by Homeowners &amp; Diaspora Investors
+                Real experiences from property buyers and gadget customers.
               </h2>
+              <p className="text-xs sm:text-sm text-slate-600 font-medium">
+                Hear directly from individuals and families who trusted JCL Royal Group for land, homes, and Tonefo electronics.
+              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {MOCK_TESTIMONIALS.map((test) => (
+              {MOCK_TESTIMONIALS.map((test, index) => (
                 <div
                   key={test.id}
-                  className="bg-white rounded-[32px] p-8 border border-slate-200/90 shadow-xl flex flex-col justify-between space-y-6"
+                  className={`bg-white rounded-[32px] p-8 border border-slate-200/90 shadow-xl hover:shadow-2xl hover:border-[#0466c8] transition-all duration-300 flex flex-col justify-between space-y-6 relative overflow-hidden group ${
+                    index === 0 ? 'md:-rotate-1' : index === 2 ? 'md:rotate-1' : ''
+                  }`}
                 >
-                  <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed italic">
-                    &ldquo;{test.quote}&rdquo;
-                  </p>
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex text-[#FF5500]">
+                        {[...Array(test.rating)].map((_, i) => (
+                          <span key={i} className="text-sm">★</span>
+                        ))}
+                      </div>
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Verified Purchase</span>
+                    </div>
+
+                    <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed italic">
+                      &ldquo;{test.quote}&rdquo;
+                    </p>
+                  </div>
 
                   <div className="flex items-center gap-4 pt-4 border-t border-slate-100">
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden bg-slate-100 shrink-0">
-                      <Image src={test.avatar} alt={test.author} fill className="object-cover" />
+                    <div className="relative w-14 h-14 rounded-2xl overflow-hidden bg-slate-100 shrink-0 border border-slate-200">
+                      <Image
+                        src={test.avatar}
+                        alt={test.author}
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                     <div>
                       <h4 className="text-sm font-extrabold text-[#001845]">{test.author}</h4>

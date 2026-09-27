@@ -160,26 +160,27 @@ export default function LandPage() {
           </div>
 
           {/* Site Inspection Consultation Card */}
-          <div className="bg-[#F8FAFC] rounded-3xl p-8 sm:p-10 border border-slate-200/90 shadow-md flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="space-y-2 max-w-2xl text-center md:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
-                <CheckCircle2 className="w-4 h-4" />
+          <div className="bg-gradient-to-br from-[#001845] via-[#0466c8] to-[#001233] text-white rounded-[36px] p-8 sm:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden border border-blue-400/20">
+            <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-blue-400/15 blur-3xl pointer-events-none" />
+            <div className="space-y-2 max-w-2xl text-center md:text-left relative z-10">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/15 backdrop-blur-md text-white text-xs font-bold border border-white/20">
+                <CheckCircle2 className="w-4 h-4 text-[#FF5500]" />
                 <span>Free Guided Inspection (Monday – Saturday)</span>
               </div>
-              <h4 className="text-lg sm:text-xl font-extrabold text-[#001845]">
+              <h4 className="text-xl sm:text-2xl font-extrabold text-white">
                 Inspect Your Parcel with a Certified Surveyor
               </h4>
-              <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                We provide transport from our office to inspect the land, confirm concrete boundary pillars, and review Lands Commission records in person or via video walkthrough.
+              <p className="text-xs sm:text-sm text-blue-100 font-medium leading-relaxed">
+                We provide transport from our office to inspect the land, confirm concrete boundary pillars, and review Lands Commission records in person or via live HD video walkthrough for diaspora clients.
               </p>
             </div>
-            <div className="shrink-0">
+            <div className="shrink-0 relative z-10">
               <button
                 onClick={() => setInquiryOpen(true)}
-                className="px-8 py-4 rounded-full bg-[#0466c8] hover:bg-[#0353a4] text-white font-extrabold text-sm transition-all shadow-xl shadow-[#0466c8]/25 inline-flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
+                className="px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#001845] font-extrabold text-sm transition-all shadow-xl inline-flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
               >
                 <span>Book Guided Tour</span>
-                <ArrowRight className="w-4 h-4 text-white" />
+                <ArrowRight className="w-4 h-4 text-[#0466c8]" />
               </button>
             </div>
           </div>

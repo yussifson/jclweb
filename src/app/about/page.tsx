@@ -195,12 +195,15 @@ export default function AboutPage() {
         ══════════════════════════════════════════════════════════════ */}
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-[#F8FAFC] rounded-[36px] p-8 sm:p-14 border border-slate-200/90 shadow-xl">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="bg-gradient-to-br from-[#001845] via-[#0466c8] to-[#001233] text-white rounded-[36px] p-8 sm:p-14 shadow-2xl relative overflow-hidden border border-blue-400/20">
+              
+              <div className="absolute -right-24 -bottom-24 w-96 h-96 rounded-full bg-blue-400/15 blur-3xl pointer-events-none" />
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
                 
                 {/* CEO Image */}
                 <div className="lg:col-span-5 flex justify-center">
-                  <div className="relative w-full max-w-[340px] aspect-[4/5] rounded-[32px] overflow-hidden shadow-2xl border-4 border-[#0466c8] bg-slate-900">
+                  <div className="relative w-full max-w-[340px] aspect-[4/5] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white/30 bg-slate-900">
                     <Image
                       src={COMPANY_INFO.ceo.image}
                       alt="Mr. Eric Kwaw, CEO & Founder"
@@ -216,33 +219,33 @@ export default function AboutPage() {
 
                 {/* CEO Biography & Executive Philosophy */}
                 <div className="lg:col-span-7 space-y-6">
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0466c8]/10 text-[#0466c8] text-xs font-black uppercase">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/15 backdrop-blur-md text-white text-xs font-black uppercase border border-white/20">
                     Executive Leadership
                   </div>
 
-                  <h2 className="text-3xl sm:text-5xl font-extrabold text-[#001845] tracking-tight">
+                  <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
                     Mr. Eric Kwaw
                   </h2>
 
-                  <p className="text-lg font-extrabold text-[#0466c8] leading-snug">
+                  <p className="text-lg font-extrabold text-blue-200 leading-snug">
                     &ldquo;{COMPANY_INFO.ceo.tagline}&rdquo;
                   </p>
 
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+                  <p className="text-xs sm:text-sm text-blue-100 leading-relaxed font-medium">
                     {COMPANY_INFO.ceo.bio}
                   </p>
 
-                  <div className="space-y-3 pt-2 text-xs font-semibold text-slate-700">
+                  <div className="space-y-3 pt-2 text-xs font-semibold text-slate-100">
                     <div className="flex items-center gap-2.5">
-                      <Check className="w-4 h-4 text-[#0466c8] shrink-0" />
+                      <Check className="w-4 h-4 text-[#FF5500] shrink-0" />
                       <span>Direct oversight on all Lands Commission title deeds and cadastral surveys</span>
                     </div>
                     <div className="flex items-center gap-2.5">
-                      <Check className="w-4 h-4 text-[#0466c8] shrink-0" />
+                      <Check className="w-4 h-4 text-[#FF5500] shrink-0" />
                       <span>Founder of Tonefo Gadgets &amp; Solar Solutions distribution arm</span>
                     </div>
                     <div className="flex items-center gap-2.5">
-                      <Check className="w-4 h-4 text-[#0466c8] shrink-0" />
+                      <Check className="w-4 h-4 text-[#FF5500] shrink-0" />
                       <span>Direct personal consultation available for high-capacity investors &amp; diaspora clients</span>
                     </div>
                   </div>
@@ -250,16 +253,16 @@ export default function AboutPage() {
                   <div className="pt-4 flex flex-wrap items-center gap-4">
                     <button
                       onClick={() => setInquiryOpen(true)}
-                      className="px-8 py-4 rounded-full bg-[#0466c8] hover:bg-[#0353a4] text-white text-xs sm:text-sm font-extrabold transition-all shadow-xl shadow-[#0466c8]/25 inline-flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
+                      className="px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#001845] text-xs sm:text-sm font-extrabold transition-all shadow-xl inline-flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
                     >
                       <span>Book Direct CEO Consultation</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-4 h-4 text-[#0466c8]" />
                     </button>
                     <a
                       href={COMPANY_INFO.social.whatsapp}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-8 py-4 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-extrabold transition-all shadow-md inline-flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
+                      className="px-8 py-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-extrabold transition-all shadow-md inline-flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
                     >
                       <span>WhatsApp Direct</span>
                     </a>
