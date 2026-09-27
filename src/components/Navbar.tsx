@@ -43,9 +43,9 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
         
         {/* Brand Logo with Authentic Full Color Fidelity */}
         <Link href="/" className="flex items-center space-x-3 group shrink-0 py-1">
-          <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-white flex items-center justify-center p-0.5 border border-slate-200/80 shadow-xs group-hover:scale-105 transition-transform overflow-hidden">
+          <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-white flex items-center justify-center p-1 border border-slate-200/80 shadow-xs group-hover:scale-105 transition-transform overflow-hidden">
             <Image
-              src="/images/jcl-royal-group.jpg"
+              src="/images/jcl-emblem.png"
               alt="JCL Royal Group"
               fill
               sizes="44px"

@@ -16,9 +16,9 @@ export default function Footer() {
           
           {/* Logo & Identity */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative w-10 h-10 rounded-2xl bg-white flex items-center justify-center p-0.5 border border-slate-200 shadow-xs overflow-hidden">
+            <div className="relative w-10 h-10 rounded-2xl bg-white flex items-center justify-center p-1 border border-slate-200 shadow-xs overflow-hidden">
               <Image
-                src="/images/jcl-royal-group.jpg"
+                src="/images/jcl-emblem.png"
                 alt="JCL Royal Group"
                 fill
                 sizes="40px"

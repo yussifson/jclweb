@@ -5,6 +5,17 @@ export const metadata: Metadata = {
   title: 'JCL Royal Group | Real Estate, Land Development & Engineering',
   description: 'Official corporate website of JCL Royal Group — premier residential & commercial real estate, litigation-free titled land parcels, civil engineering, and quantity surveying.',
   keywords: 'JCL Royal Group, Real Estate, Properties for Sale, Land in Ghana, Cadastral Surveying, Civil Engineering, Quantity Surveying, Luxury Homes',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
+      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
 };
 
 export default function RootLayout({
