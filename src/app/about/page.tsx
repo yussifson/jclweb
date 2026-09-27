@@ -88,11 +88,11 @@ export default function AboutPage() {
         <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto text-center relative">
           <div className="space-y-6">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-[#001845] leading-[1.3] tracking-tight max-w-5xl mx-auto">
-              Delivering secure, litigation-free land, master-built villas, and bespoke interiors for over{" "}
+              Delivering secure, litigation-free land, master-built villas, and bespoke interiors for{" "}
               <span className="relative inline-block">
-                <span className="relative z-10 px-2 text-[#001845] bg-[#0466c8]/20 rounded-lg">1,250+ Families &amp; Diaspora Clients</span>
+                <span className="relative z-10 px-2 text-[#001845] bg-[#0466c8]/20 rounded-lg">Families &amp; Diaspora Clients</span>
               </span>{" "}
-              — with zero legal disputes and complete peace of mind.
+              — with verified titles, complete transparency, and zero legal disputes.
             </h2>
 
             {/* Feature Badges */}

@@ -111,9 +111,9 @@ export default function Footer() {
             <p className="text-[11px] text-slate-500 font-medium">Lands Commission verified</p>
           </div>
           <div className="p-5 rounded-2xl bg-white border border-slate-200/90 text-center space-y-1 shadow-xs hover:border-[#FF5500] transition-all">
-            <div className="text-2xl sm:text-3xl font-black text-[#FF5500]">1,250+</div>
-            <div className="text-xs font-bold text-slate-800">Titles &amp; Plots Delivered</div>
-            <p className="text-[11px] text-slate-500 font-medium">Resident &amp; diaspora clients</p>
+            <div className="text-2xl sm:text-3xl font-black text-[#FF5500]">Accra &amp; Prampram</div>
+            <div className="text-xs font-bold text-slate-800">Prime Locations</div>
+            <p className="text-[11px] text-slate-500 font-medium">Master-planned enclaves</p>
           </div>
           <div className="p-5 rounded-2xl bg-white border border-slate-200/90 text-center space-y-1 shadow-xs hover:border-[#0466c8] transition-all">
             <div className="text-2xl sm:text-3xl font-black text-[#0466c8]">10 Years</div>
