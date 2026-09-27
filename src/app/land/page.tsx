@@ -14,11 +14,20 @@ export default function LandPage() {
   const [inquiryOpen, setInquiryOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<LandCategoryPortfolio | null>(null);
 
-  const categories = ['All', 'Residential', 'Commercial', 'Gated Community', 'Industrial'];
+  const categories = [
+    'All',
+    'Residential',
+    'Commercial',
+    'Gated Community',
+    'Beachfront & Leisure',
+    'Industrial',
+    'Agricultural',
+    'Institutional'
+  ];
 
   const filteredLand = selectedZoning === 'All'
     ? LAND_CATEGORIES_PORTFOLIO
-    : LAND_CATEGORIES_PORTFOLIO.filter(l => l.zoning.toLowerCase() === selectedZoning.toLowerCase());
+    : LAND_CATEGORIES_PORTFOLIO.filter(l => l.zoning.toLowerCase().includes(selectedZoning.toLowerCase()) || selectedZoning.toLowerCase().includes(l.zoning.toLowerCase()));
 
   const handleInquireLand = (land: LandCategoryPortfolio) => {
     setSelectedCategory(land);
@@ -42,7 +51,7 @@ export default function LandPage() {
               Titled Land &amp; Master-Planned Acreage
             </h1>
             <p className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
-              Authentically registered, surveyed with differential GPS, and backed by verified Lands Commission search documents. Ready for immediate construction across prime corridors.
+              Authentically registered, surveyed with differential GPS, and backed by verified Lands Commission search documents. Ready for immediate construction across prime residential, commercial, beachfront, and industrial corridors.
             </p>
           </div>
 
@@ -80,24 +89,24 @@ export default function LandPage() {
           </div>
 
           {/* Filter Bar */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
             {categories.map((zoning) => (
               <button
                 key={zoning}
                 onClick={() => setSelectedZoning(zoning)}
-                className={`px-5 py-2 rounded-full text-xs font-bold transition-all shrink-0 ${
+                className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all shrink-0 ${
                   selectedZoning === zoning
-                    ? 'bg-[#0466c8] text-white shadow-sm'
+                    ? 'bg-[#0466c8] text-white shadow-md'
                     : 'bg-[#F8FAFC] text-slate-700 hover:bg-slate-200 border border-slate-200'
                 }`}
               >
-                {zoning === 'All' ? 'All Land Portfolios' : `${zoning} Land`}
+                {zoning === 'All' ? 'All 7 Land Categories' : zoning}
               </button>
             ))}
           </div>
 
           {/* Land Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredLand.map((land) => (
               <div
                 key={land.id}
@@ -114,12 +123,12 @@ export default function LandPage() {
                     </span>
                   </div>
 
-                  <div className="relative h-60 rounded-2xl overflow-hidden bg-slate-100">
+                  <div className="relative h-56 rounded-2xl overflow-hidden bg-slate-100">
                     <Image
                       src={land.image}
                       alt={land.title}
                       fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
@@ -127,12 +136,12 @@ export default function LandPage() {
                   <h3 className="text-xl font-extrabold text-[#001845] tracking-tight">
                     {land.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed line-clamp-3">
                     {land.description}
                   </p>
 
                   <div className="space-y-2 pt-3 border-t border-slate-100 text-xs font-semibold text-slate-700">
-                    {land.keyFeatures.map((feat, idx) => (
+                    {land.keyFeatures.slice(0, 3).map((feat, idx) => (
                       <div key={idx} className="flex items-center gap-2">
                         <Check className="w-4 h-4 text-[#0466c8] shrink-0" />
                         <span>{feat}</span>
@@ -142,7 +151,7 @@ export default function LandPage() {
 
                   <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 text-xs text-slate-600 space-y-1">
                     <strong className="text-[#001845] block">Plot Allocation Units:</strong>
-                    <span>{land.allocationSizes}</span>
+                    <span className="line-clamp-2">{land.allocationSizes}</span>
                   </div>
                 </div>
 

@@ -58,9 +58,9 @@ export default function Home() {
       <main className="flex-grow">
 
         {/* ══════════════════════════════════════════════════════════════
-            1. HERO SECTION (AUTHENTIC VIDEO BACKGROUND & DUAL-CARD DESIGN)
+            1. HERO SECTION (CLEAN, SPACIOUS, CINEMATIC VIDEO HERO)
         ══════════════════════════════════════════════════════════════ */}
-        <section className="relative min-h-[92vh] lg:min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8 bg-slate-950 text-white overflow-hidden flex flex-col justify-between">
+        <section className="relative min-h-[90vh] lg:min-h-[92vh] pt-28 pb-14 px-4 sm:px-6 lg:px-8 bg-slate-950 text-white overflow-hidden flex flex-col justify-between">
           
           {/* Background Video with Multi-Layer Gradients */}
           <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -71,163 +71,94 @@ export default function Home() {
               loop
               playsInline
               preload="metadata"
-              className="absolute inset-0 h-full w-full object-cover opacity-55 scale-105"
+              className="absolute inset-0 h-full w-full object-cover opacity-50 scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-950/50 to-slate-950/90 backdrop-blur-[1px]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-950/55 to-slate-950/90 backdrop-blur-[1px]" />
           </div>
 
-          <div className="max-w-7xl mx-auto w-full relative z-10 my-auto py-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              
-              {/* Left Column: Core Headline & Dual Value Cards */}
-              <div className="lg:col-span-7 space-y-6">
-                
-                {/* Top Location & Accreditation Pill */}
-                <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold uppercase tracking-wider shadow-sm">
-                  <span className="w-2 h-2 rounded-full bg-[#FF5500] animate-ping" />
-                  <span>JCL Royal Group • Accra &amp; Prampram</span>
-                </div>
-
-                {/* Main Headline */}
-                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.08]">
-                  We bring new <br />
-                  <span className="relative inline-block mt-1">
-                    <span className="relative z-10 text-white font-black">evolution of</span>
-                    <span className="absolute inset-0 bg-[#0466c8]/50 rounded-2xl transform -rotate-1 z-0" />
-                  </span>{' '}
-                  home &amp; land.
-                </h1>
-
-                {/* Subtext */}
-                <p className="text-sm sm:text-base text-slate-200 font-medium max-w-xl leading-relaxed">
-                  Experience the unified synergy of 100% litigation-free titled land, turnkey civil construction, bespoke interior decoration, and genuine Tonefo smart electricals across Ghana.
-                </p>
-
-                {/* Action CTAs */}
-                <div className="flex flex-wrap items-center gap-4 pt-2">
-                  <button
-                    onClick={() => {
-                      setSelectedService('real-estate');
-                      setInquiryOpen(true);
-                    }}
-                    className="px-8 py-4 rounded-full bg-[#0466c8] hover:bg-[#0353a4] text-white font-extrabold text-xs sm:text-sm transition-all shadow-xl shadow-[#0466c8]/40 inline-flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    <span>Request Services</span>
-                    <ArrowUpRight className="w-4 h-4 text-white" />
-                  </button>
-
-                  <a
-                    href={COMPANY_INFO.social.whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-8 py-4 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm transition-all shadow-xl inline-flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    <MessageCircle className="w-4 h-4 fill-white" />
-                    <span>WhatsApp Direct</span>
-                  </a>
-                </div>
-
-                {/* Bottom Glass Value Banner */}
-                <div className="pt-4">
-                  <div className="p-6 rounded-3xl bg-white/10 backdrop-blur-md border border-white/15 max-w-xl space-y-1 shadow-2xl">
-                    <p className="text-lg sm:text-xl font-extrabold text-white">Available now in Ghana.</p>
-                    <p className="text-xs sm:text-sm text-slate-300 font-medium">
-                      Litigation-free titled land, turnkey civil construction, luxury interior styling, and Tonefo electronics from one accountable team.
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-
-              {/* Right Column: Hero Interactive Visual Showcase Cards */}
-              <div className="lg:col-span-5 space-y-4">
-                
-                {/* Top Quick Link Card */}
-                <Link
-                  href="/services"
-                  className="group relative flex h-24 sm:h-28 flex-col justify-end overflow-hidden rounded-3xl bg-[#0466c8] hover:bg-[#0353a4] p-6 text-white shadow-2xl transition-all border border-blue-400/30"
-                >
-                  <ArrowUpRight className="absolute right-5 top-5 h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                  <span className="text-xs font-bold text-blue-200 uppercase tracking-wider">Ecosystem Capabilities</span>
-                  <p className="text-lg sm:text-xl font-extrabold leading-tight">A realm of infinite possibilities</p>
-                </Link>
-
-                {/* Dual Featured Properties & Tonefo Preview Box */}
-                <div className="relative rounded-3xl bg-white/95 backdrop-blur-md p-3.5 shadow-2xl border border-white/30 space-y-3">
-                  <div className="grid grid-cols-2 gap-3 min-h-[220px] sm:min-h-[260px]">
-                    
-                    {/* Visual 1 */}
-                    <div className="relative rounded-2xl overflow-hidden bg-slate-100 border border-black/5">
-                      <Image
-                        src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1779141605/image_mo2c4a.png"
-                        alt="JCL Luxury Property"
-                        fill
-                        sizes="(max-width: 768px) 50vw, 25vw"
-                        className="object-contain p-2 drop-shadow-md hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute top-2 left-2 px-2.5 py-0.5 rounded-full bg-[#001845] text-white text-[9px] font-black uppercase">
-                        Master Build
-                      </div>
-                    </div>
-
-                    {/* Visual 2 */}
-                    <div className="relative rounded-2xl overflow-hidden bg-slate-100 border border-black/5">
-                      <Image
-                        src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1779220660/heroslide1_zu4ir8.jpg"
-                        alt="JCL Architectural Residence"
-                        fill
-                        sizes="(max-width: 768px) 50vw, 25vw"
-                        className="object-cover hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute top-2 left-2 px-2.5 py-0.5 rounded-full bg-[#FF5500] text-white text-[9px] font-black uppercase">
-                        Titled Land
-                      </div>
-                    </div>
-
-                  </div>
-
-                  {/* Floating Circular Thumbnails Strip at Bottom Right */}
-                  <div className="flex items-center justify-between px-2 pt-1">
-                    <div className="text-[11px] font-bold text-slate-800">
-                      <span>Certified Cadastral &amp; Tonefo Tech</span>
-                    </div>
-
-                    <div className="flex items-center -space-x-2">
-                      <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-white shadow-md relative bg-white">
-                        <Image src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1779141605/image_mo2c4a.png" alt="Preview 1" fill className="object-contain" />
-                      </div>
-                      <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-white shadow-md relative bg-white">
-                        <Image src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1779220660/heroslide1_zu4ir8.jpg" alt="Preview 2" fill className="object-cover" />
-                      </div>
-                      <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-white shadow-md relative bg-white">
-                        <Image src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1779220660/heroslide4_tibcil.jpg" alt="Preview 3" fill className="object-cover" />
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-
+          <div className="max-w-5xl mx-auto w-full relative z-10 my-auto py-8 text-center space-y-8">
+            
+            {/* Top Location & Accreditation Pill */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold uppercase tracking-wider shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#FF5500] animate-ping" />
+              <span>JCL Royal Group • Greater Accra &amp; Prampram</span>
             </div>
+
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.08] max-w-4xl mx-auto">
+              We bring new <br />
+              <span className="relative inline-block mt-1">
+                <span className="relative z-10 text-white font-black">evolution of</span>
+                <span className="absolute inset-0 bg-[#0466c8]/60 rounded-2xl transform -rotate-1 z-0" />
+              </span>{' '}
+              home &amp; land.
+            </h1>
+
+            {/* Subtext */}
+            <p className="text-sm sm:text-base lg:text-lg text-slate-200 font-medium max-w-2xl mx-auto leading-relaxed">
+              Experience the unified synergy of 100% litigation-free titled land, turnkey civil construction, bespoke interior decoration, and genuine Tonefo smart electricals across Ghana.
+            </p>
+
+            {/* Enhanced, Clean Action CTAs */}
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+              <button
+                onClick={() => {
+                  setSelectedService('real-estate');
+                  setInquiryOpen(true);
+                }}
+                className="px-9 py-4 rounded-full bg-[#0466c8] hover:bg-[#0353a4] text-white font-extrabold text-xs sm:text-sm tracking-tight transition-all shadow-xl shadow-[#0466c8]/30 inline-flex items-center gap-2.5 hover:scale-[1.03] active:scale-[0.97]"
+              >
+                <span>Request Services</span>
+                <ArrowUpRight className="w-4 h-4 text-white" />
+              </button>
+
+              <Link
+                href="/land"
+                className="px-9 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-extrabold text-xs sm:text-sm tracking-tight transition-all border border-white/25 backdrop-blur-md inline-flex items-center gap-2.5 hover:scale-[1.03] active:scale-[0.97]"
+              >
+                <Compass className="w-4 h-4 text-[#FF5500]" />
+                <span>Explore Titled Land</span>
+              </Link>
+
+              <a
+                href={COMPANY_INFO.social.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-9 py-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs sm:text-sm tracking-tight transition-all shadow-xl inline-flex items-center gap-2.5 hover:scale-[1.03] active:scale-[0.97]"
+              >
+                <MessageCircle className="w-4 h-4 fill-white" />
+                <span>WhatsApp Direct</span>
+              </a>
+            </div>
+
+            {/* Glass Value Banner */}
+            <div className="pt-4 max-w-2xl mx-auto">
+              <div className="p-5 rounded-3xl bg-white/10 backdrop-blur-md border border-white/15 space-y-1 shadow-2xl text-center">
+                <p className="text-base sm:text-lg font-extrabold text-white">Available now in Ghana.</p>
+                <p className="text-xs sm:text-sm text-slate-300 font-medium">
+                  Litigation-free titled land, turnkey civil construction, luxury interior styling, and Tonefo electronics from one accountable team.
+                </p>
+              </div>
+            </div>
+
           </div>
 
           {/* Hero Bottom Navigation & Direct Hotline */}
           <div className="max-w-7xl mx-auto w-full relative z-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300">
-            <div className="flex items-center gap-4">
-              <Link href="/services" className="hover:text-white font-bold flex items-center gap-1">
+            <div className="flex flex-wrap items-center justify-center gap-5">
+              <Link href="/services" className="hover:text-white font-bold flex items-center gap-1.5">
                 <Building2 className="w-4 h-4 text-[#0466c8]" />
                 <span>Real Estate</span>
               </Link>
-              <Link href="/land" className="hover:text-white font-bold flex items-center gap-1">
+              <Link href="/land" className="hover:text-white font-bold flex items-center gap-1.5">
                 <Compass className="w-4 h-4 text-[#FF5500]" />
                 <span>Titled Land</span>
               </Link>
-              <Link href="/services#service-interior-deco" className="hover:text-white font-bold flex items-center gap-1">
+              <Link href="/services#service-interior-deco" className="hover:text-white font-bold flex items-center gap-1.5">
                 <Palette className="w-4 h-4 text-[#0466c8]" />
                 <span>Interior Deco</span>
               </Link>
-              <Link href="/services#service-tonefo" className="hover:text-white font-bold flex items-center gap-1">
+              <Link href="/services#service-tonefo" className="hover:text-white font-bold flex items-center gap-1.5">
                 <Zap className="w-4 h-4 text-[#FF5500]" />
                 <span>Tonefo Tech</span>
               </Link>
@@ -348,13 +279,13 @@ export default function Home() {
                 </div>
               </Link>
 
-              {/* Card 3: Interior Decoration */}
+              {/* Card 3: Interior Decoration (Ultra Clean, Luxury Design Image) */}
               <Link
                 href="/services#service-interior-deco"
                 className="group relative min-h-[380px] rounded-[32px] overflow-hidden bg-slate-950 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-end p-6 text-white"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80"
+                  src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80"
                   alt="Interior Decoration & Fit-outs"
                   fill
                   sizes="(max-width: 768px) 100vw, 25vw"
@@ -558,8 +489,8 @@ export default function Home() {
               </p>
             </div>
 
-            {/* 4 Land Categories Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* 7 Land Categories Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {LAND_CATEGORIES_PORTFOLIO.map((land) => (
                 <div
                   key={land.id}

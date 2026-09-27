@@ -53,12 +53,9 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
               priority
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex items-center">
             <span className="text-base sm:text-lg font-black tracking-tight text-[#001845] flex items-center gap-1 leading-none">
               JCL <span className="text-[#0466c8] font-bold">Royal Group</span>
-            </span>
-            <span className="text-[9px] sm:text-[10px] text-slate-500 font-bold tracking-wider uppercase mt-1">
-              Real Estate &amp; Land Dev
             </span>
           </div>
         </Link>

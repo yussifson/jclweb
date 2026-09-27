@@ -15,9 +15,9 @@ export interface PropertyTypePortfolio {
 export interface LandCategoryPortfolio {
   id: string;
   title: string;
-  zoning: 'Residential' | 'Commercial' | 'Mixed-Use' | 'Industrial' | 'Gated Community';
+  zoning: 'Residential' | 'Commercial' | 'Mixed-Use' | 'Industrial' | 'Gated Community' | 'Beachfront & Leisure' | 'Agricultural' | 'Institutional';
   tagline: string;
-  titleStatus: 'Litigation-Free Registered Deed' | 'Cadastral Survey Certified' | 'Lands Commission Verified' | 'Freehold / Master Leasehold';
+  titleStatus: string;
   image: string;
   gallery: string[];
   description: string;
@@ -343,9 +343,9 @@ export const LAND_CATEGORIES_PORTFOLIO: LandCategoryPortfolio[] = [
       'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?auto=format&fit=crop&w=1200&q=80'
     ],
-    description: 'Authentically acquired and fully registered land parcels in high-growth corridors. Each parcel has certified cadastral beacons, clear access roads, and immediate proximity to the national electrical grid.',
+    description: 'Authentically acquired and fully registered land parcels in prime residential growth corridors (Prampram, Appolonia, East Legon Hills & Tsopoli). Each parcel has certified cadastral GPS beacons, graded access roads, and immediate proximity to the national electrical grid.',
     keyFeatures: [
-      'Verified Lands Commission cadastral records',
+      'Verified Lands Commission cadastral search certificate',
       'Demarcated with permanent concrete boundary beacons',
       'Zero chieftaincy or family ownership disputes',
       'Immediate site clearance and excavation clearance'
@@ -367,7 +367,7 @@ export const LAND_CATEGORIES_PORTFOLIO: LandCategoryPortfolio[] = [
     gallery: [
       'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80'
     ],
-    description: 'High-visibility commercial parcels along major growth corridors. Ideal for retail malls, corporate office hubs, educational institutions, medical complexes, or fueling stations.',
+    description: 'High-visibility commercial parcels along major growth corridors. Ideal for retail shopping centers, bank branches, corporate headquarters, medical clinics, fueling stations, and hospitality complexes.',
     keyFeatures: [
       'Commercial zoning certificate granted',
       'High vehicle & pedestrian traffic visibility',
@@ -391,7 +391,7 @@ export const LAND_CATEGORIES_PORTFOLIO: LandCategoryPortfolio[] = [
     gallery: [
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
     ],
-    description: 'Exclusive parcels situated inside fully planned residential enclaves with perimeter boundary walls, 24/7 security checkpoints, underground drainage, and dedicated community recreational zones.',
+    description: 'Exclusive parcels situated inside fully planned residential enclaves with perimeter boundary walls, 24/7 security checkpoints, underground drainage, and dedicated community recreational parks.',
     keyFeatures: [
       'Enclosed perimeter walling with security post',
       'Planned green parks and communal sports facilities',
@@ -406,6 +406,30 @@ export const LAND_CATEGORIES_PORTFOLIO: LandCategoryPortfolio[] = [
     allocationSizes: 'Standard 70x100ft and 100x100ft prime residential plots.'
   },
   {
+    id: 'land-beachfront',
+    title: 'Beachfront & Coastal Leisure Land',
+    zoning: 'Beachfront & Leisure',
+    tagline: 'Pristine oceanfront parcels for luxury vacation villas, boutique beach resorts, and hospitality.',
+    titleStatus: 'Certified Coastal Registry Deed',
+    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80'
+    ],
+    description: 'Prime ocean-facing parcels along the vibrant coastline of Prampram and Greater Accra. Unobstructed sea views, clean sandy shores, and exceptional potential for diaspora holiday retreats, private beach villas, and resort investments.',
+    keyFeatures: [
+      'Direct unobstructed ocean frontage',
+      'Environmental Protection Agency (EPA) compliance clearance',
+      'High-yield hospitality and rental return potential',
+      'Secure stool indenture with cadastral beacon mapping'
+    ],
+    infrastructureReady: [
+      'Coastal arterial road access',
+      'Grid electricity nearby and solar-ready orientation',
+      'Perimeter boundary markers'
+    ],
+    allocationSizes: 'Available from 1 Plot (70x100ft) up to 10-Acre Coastal Waterfront Parcels.'
+  },
+  {
     id: 'land-industrial',
     title: 'Industrial & Logistics Heavy Acreage',
     zoning: 'Industrial',
@@ -415,7 +439,7 @@ export const LAND_CATEGORIES_PORTFOLIO: LandCategoryPortfolio[] = [
     gallery: [
       'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80'
     ],
-    description: 'Level, heavy-bearing land parcels tailored for logistics distribution hubs, factory warehouses, processing plants, and equipment yards with direct arterial road links.',
+    description: 'Level, heavy-bearing land parcels tailored for logistics distribution hubs, factory warehouses, processing plants, and equipment yards with direct arterial road links to Tema port and national highways.',
     keyFeatures: [
       'Heavy industrial zoning endorsement',
       'High soil load-bearing capacity surveyed',
@@ -428,6 +452,54 @@ export const LAND_CATEGORIES_PORTFOLIO: LandCategoryPortfolio[] = [
       'Dedicated industrial power substation proximity'
     ],
     allocationSizes: 'Available in 5 to 50+ Acres bulk blocks.'
+  },
+  {
+    id: 'land-agricultural',
+    title: 'Farmland & Commercial Agribusiness Acreage',
+    zoning: 'Agricultural',
+    tagline: 'Fertile, expansive contiguous titled tracts for commercial crop cultivation, livestock, and greenhouse farming.',
+    titleStatus: 'Ministry of Food & Agriculture Verified',
+    image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80'
+    ],
+    description: 'Rich, fertile agricultural acreage situated in high-yield farming zones with natural water sources and perennial streams. Perfect for commercial greenhouse ventures, poultry, livestock, cash crops, and agro-processing facilities.',
+    keyFeatures: [
+      'Soil nutrient and drainage survey certified',
+      'Perennial water table & irrigation access',
+      'Large contiguous boundary documentation',
+      'Tax incentives for registered agribusiness operations'
+    ],
+    infrastructureReady: [
+      'Farm-to-market graded feeder roads',
+      'Natural stream & borehole water access',
+      'Rural electrification connectivity nearby'
+    ],
+    allocationSizes: 'Available in 5-Acre to 200+ Acre expansive blocks.'
+  },
+  {
+    id: 'land-institutional',
+    title: 'Institutional & Civic Development Parcels',
+    zoning: 'Institutional',
+    tagline: 'Designated zoning for private universities, secondary schools, medical hospitals, and civic foundations.',
+    titleStatus: 'Institutional Zoning Certified',
+    image: 'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1200&q=80'
+    ],
+    description: 'Expansive land parcels planned specifically for institutional use including international schools, university campuses, medical health facilities, sports complexes, and corporate training centers.',
+    keyFeatures: [
+      'Approved civic and educational zoning permit',
+      'Large buffer zones and expansive parking accommodation',
+      'Clear title with statutory Lands Commission endorsement',
+      'Multilateral institutional compliance ready'
+    ],
+    infrastructureReady: [
+      'Dual-carriage arterial road links',
+      'High-capacity power and municipal water connection points',
+      'Comprehensive drainage integration'
+    ],
+    allocationSizes: 'Available in 3-Acre to 30-Acre institutional campuses.'
   }
 ];
 
@@ -482,7 +554,7 @@ export const SERVICE_PILLARS: ServicePillar[] = [
     tagline: 'High-end interior architecture, bespoke millwork, curated furnishings, and luxury spatial transformations.',
     iconName: 'Sparkles',
     badge: 'Luxury Styling',
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80',
     description: 'We transform residential villas, penthouses, executive offices, and hospitality spaces with bespoke interior styling. From custom lighting architecture, luxury acoustic wall paneling, Italian imported marble tiling to turnkey furnishings and art curation.',
     deliverables: [
       'Photorealistic 3D interior renders & bespoke mood boards',
