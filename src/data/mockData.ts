@@ -1,47 +1,29 @@
-export interface Property {
+export interface PropertyTypePortfolio {
   id: string;
   title: string;
-  slug: string;
-  category: 'house' | 'apartment' | 'condo' | 'commercial' | 'villa' | 'land';
-  type: 'sale' | 'rent';
-  price: number;
-  currency: string;
-  priceFormatted: string;
-  pricePeriod?: string;
-  address: string;
-  city: string;
-  neighborhood: string;
-  bedrooms: number;
-  bathrooms: number;
-  sqft: number;
-  featured?: boolean;
-  statusTag: 'For Sale' | 'For Rent' | 'Hot Deal' | 'New Listing' | 'Exclusive';
+  category: 'Residential' | 'Commercial' | 'Villas' | 'Penthouses' | 'Townhouses' | 'Mixed-Use';
+  type: 'Turnkey Construction & Development' | 'Off-Plan & Custom Build' | 'Executive Residential';
+  tagline: string;
   image: string;
   gallery: string[];
   description: string;
-  features: string[];
-  agent: Agent;
+  specifications: string[];
+  deliverables: string[];
+  suitableFor: string;
 }
 
-export interface LandParcel {
+export interface LandCategoryPortfolio {
   id: string;
   title: string;
-  slug: string;
-  zoning: 'Residential' | 'Commercial' | 'Mixed-Use' | 'Industrial' | 'Agricultural';
-  type: 'sale' | 'lease';
-  price: number;
-  priceFormatted: string;
-  acreage: string;
-  dimensions: string;
-  location: string;
-  city: string;
-  topography: 'Flat / Level' | 'Gentle Slope' | 'Elevated View' | 'Cleared';
-  utilities: string[];
-  titleStatus: 'Titled / Registered Deed' | 'Freehold Available' | 'Master Leasehold' | 'Gazetted Survey';
+  zoning: 'Residential' | 'Commercial' | 'Mixed-Use' | 'Industrial' | 'Gated Community';
+  tagline: string;
+  titleStatus: 'Litigation-Free Registered Deed' | 'Cadastral Survey Certified' | 'Lands Commission Verified' | 'Freehold / Master Leasehold';
   image: string;
   gallery: string[];
   description: string;
-  highlights: string[];
+  keyFeatures: string[];
+  infrastructureReady: string[];
+  allocationSizes: string;
 }
 
 export interface Agent {
@@ -50,7 +32,7 @@ export interface Agent {
   role: string;
   specialty: string;
   rating: number;
-  propertiesSold: number;
+  projectsSupervised: number;
   image: string;
   phone: string;
   email: string;
@@ -72,9 +54,8 @@ export interface ProjectItem {
   title: string;
   category: 'Residential Estate' | 'Commercial Complex' | 'Infrastructure' | 'Master Development';
   status: 'Completed' | 'Under Construction' | 'Planning & Design';
-  location: string;
-  completionYear: string;
   scope: string;
+  completionPeriod: string;
   image: string;
   description: string;
   highlights: string[];
@@ -85,7 +66,6 @@ export interface FAQItem {
   question: string;
   answer: string;
   category: string;
-  imagePreview?: string;
 }
 
 export interface Testimonial {
@@ -99,7 +79,7 @@ export interface Testimonial {
 }
 
 // ----------------------------------------------------
-// Authentic Company & Team Data (from jclroyalgh.com)
+// Authentic Company & Leadership Data (from jclroyalgh.com)
 // ----------------------------------------------------
 
 export const COMPANY_INFO = {
@@ -109,10 +89,10 @@ export const COMPANY_INFO = {
     name: 'Mr. Eric Kwaw',
     title: 'CEO & Founder',
     tagline: 'A hands-on builder of brands, deals, and customer trust, with a sharp eye for the details.',
-    bio: 'Mr. Eric Kwaw, the visionary CEO and founder of JCL Group, has shaped a business built around dependable property solutions, litigation-free land development, and trusted Tonefo electrical gadget sales. His focus on quality, speed, and customer satisfaction guides the company across all divisions.',
+    bio: 'Mr. Eric Kwaw, the visionary CEO and founder of JCL Group, has built an enterprise founded on dependable property solutions, litigation-free land development, civil construction excellence, and trusted Tonefo electrical gadget supply. His leadership guarantees transparency, prompt delivery, and lifelong client satisfaction.',
     image: 'https://res.cloudinary.com/dqidnnssq/image/upload/v1771239782/ceo_ukjbgd.jpg',
   },
-  logo: 'https://res.cloudinary.com/dlhyawc5e/image/upload/v1778869865/jcllogo_rj8hvw-removebg-preview_csqvsg.png',
+  logo: '/images/jcl-royal-group.jpg',
   phones: [
     { label: 'Primary / WhatsApp', number: '+233 55 786 0299', clean: '233557860299' },
     { label: 'Office Line 1', number: '025 646 6565', clean: '0256466565' },
@@ -124,7 +104,7 @@ export const COMPANY_INFO = {
   social: {
     linkedin: 'https://www.linkedin.com/in/jclroyalgh',
     tiktok: 'https://www.tiktok.com/@tonefo2',
-    whatsapp: 'https://wa.me/233557860299?text=Hello%20JCL%20Royal%20Group',
+    whatsapp: 'https://wa.me/233557860299?text=Hello%20JCL%20Royal%20Group%20Team',
   }
 };
 
@@ -135,11 +115,11 @@ export const MOCK_AGENTS: Agent[] = [
     role: 'CEO & Founder',
     specialty: 'Executive Property & Strategic Land Acquisitions',
     rating: 5.0,
-    propertiesSold: 520,
+    projectsSupervised: 520,
     image: 'https://res.cloudinary.com/dqidnnssq/image/upload/v1771239782/ceo_ukjbgd.jpg',
     phone: '+233 55 786 0299',
     email: 'jclroyals26@gmail.com',
-    bio: 'Visionary leadership guiding nationwide real estate developments, litigation-free land allocation, and Tonefo gadget distribution.'
+    bio: 'Visionary leadership spearheading nationwide real estate master-developments, litigation-free land allocation, and Tonefo gadget distribution.'
   },
   {
     id: 'agent-1',
@@ -147,23 +127,23 @@ export const MOCK_AGENTS: Agent[] = [
     role: 'Principal Property Consultant',
     specialty: 'Luxury Residential & Gated Estates',
     rating: 5.0,
-    propertiesSold: 453,
+    projectsSupervised: 453,
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
     phone: '025 646 6565',
     email: 'jclroyals26@gmail.com',
-    bio: 'Over 12 years of specialized real estate advisory delivering exceptional results for home seekers and institutional investors.'
+    bio: 'Over 12 years of specialized real estate advisory delivering exceptional architectural results for homeowners and institutional investors.'
   },
   {
     id: 'agent-2',
     name: 'Kacie Velasquez',
-    role: 'Senior Land & Commercial Advisor',
+    role: 'Senior Land & Cadastral Advisor',
     specialty: 'Commercial Parcels & Cadastral Planning',
     rating: 5.0,
-    propertiesSold: 325,
+    projectsSupervised: 325,
     image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80',
     phone: '053 110 1123',
     email: 'jclroyals26@gmail.com',
-    bio: 'Expert in zoning compliance, acreage acquisition, and multi-acre land subdivision projects.'
+    bio: 'Expert in Lands Commission title verification, zoning compliance, and multi-acre land subdivision projects.'
   },
   {
     id: 'agent-3',
@@ -171,7 +151,7 @@ export const MOCK_AGENTS: Agent[] = [
     role: 'Civil Engineering & Construction Lead',
     specialty: 'Turnkey Construction & Project Management',
     rating: 5.0,
-    propertiesSold: 289,
+    projectsSupervised: 289,
     image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
     phone: '024 511 8310',
     email: 'jclroyals26@gmail.com',
@@ -179,410 +159,462 @@ export const MOCK_AGENTS: Agent[] = [
   }
 ];
 
-export const MOCK_PROPERTIES: Property[] = [
+// ----------------------------------------------------
+// Property Portfolio Types (No prices, No individual house listings)
+// ----------------------------------------------------
+
+export const PROPERTY_TYPES_PORTFOLIO: PropertyTypePortfolio[] = [
   {
-    id: 'prop-1',
-    title: 'The Modernist Pavilion Residence',
-    slug: 'modernist-pavilion-residence',
-    category: 'villa',
-    type: 'sale',
-    price: 1650000,
-    currency: '$',
-    priceFormatted: '$1,650,000',
-    address: 'Airport Residential Area, Accra',
-    city: 'Accra',
-    neighborhood: 'Airport Residential',
-    bedrooms: 4,
-    bathrooms: 3,
-    sqft: 1868,
-    featured: true,
-    statusTag: 'Exclusive',
+    id: 'prop-penthouse',
+    title: 'Luxury Penthouses & Sky Residences',
+    category: 'Penthouses',
+    type: 'Executive Residential',
+    tagline: 'Panoramic urban views, private rooftop terraces, and custom bespoke interiors.',
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80'
+    ],
+    description: 'Bespoke high-altitude residences designed for discerning homeowners who value privacy, floor-to-ceiling panoramic glass, and high-end acoustic insulation. Built with integrated Tonefo smart home automation.',
+    specifications: [
+      'Double-height open living concepts',
+      'Private elevator foyer access',
+      'Sub-Zero & Italian designer kitchens',
+      'Infinity plunge pool & entertainment terrace',
+      'Tonefo smart climate & lighting control'
+    ],
+    deliverables: [
+      'Custom architectural layout consultation',
+      'Turnkey interior fit-out execution',
+      'Full legal freehold & deed documentation'
+    ],
+    suitableFor: 'High-net-worth individuals, executives, and luxury lifestyle seekers.'
+  },
+  {
+    id: 'prop-villas',
+    title: 'Contemporary Luxury Family Villas',
+    category: 'Villas',
+    type: 'Turnkey Construction & Development',
+    tagline: 'Grand standalone residences featuring expansive landscaped grounds and private pools.',
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
     gallery: [
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80'
     ],
-    description: 'An architectural masterpiece featuring clean contemporary lines, floor-to-ceiling glass pavilions, integrated landscaped stone courtyards, and smart Tonefo energy infrastructure.',
-    features: ['Double-height ceilings', 'Private courtyard garden', 'Smart Tonefo integration', 'Designer Italian kitchen', '3-car garage', 'Photovoltaic solar array'],
-    agent: MOCK_AGENTS[0]
+    description: 'Masterfully engineered villas combining modern tropical architecture with durable reinforced masonry. Each villa is tailored to multi-generational family living with private garden courtyards and dedicated staff quarters.',
+    specifications: [
+      '4 to 6 ensuite master suites',
+      'Spacious indoor & outdoor entertaining pavilions',
+      'Solar energy backup with battery storage',
+      'Multi-vehicle secured garage & compound',
+      'Dedicated domestic staff quarters'
+    ],
+    deliverables: [
+      'Complete structural and MEP engineering blueprints',
+      'Turnkey civil construction with 10-year warranty',
+      'Full perimeter security & CCTV setup'
+    ],
+    suitableFor: 'Families, diaspora investors, and permanent luxury residential living.'
   },
   {
-    id: 'prop-2',
-    title: 'The Pinnacle at East Legon Hills',
-    slug: 'pinnacle-east-legon-hills',
-    category: 'house',
-    type: 'sale',
-    price: 3567980,
-    currency: '$',
-    priceFormatted: '$3,567,980',
-    address: 'East Legon Hills, Accra',
-    city: 'Accra',
-    neighborhood: 'East Legon Hills Enclave',
-    bedrooms: 5,
-    bathrooms: 4,
-    sqft: 3420,
-    featured: true,
-    statusTag: 'For Sale',
+    id: 'prop-townhouses',
+    title: 'Executive Gated Townhouses',
+    category: 'Townhouses',
+    type: 'Turnkey Construction & Development',
+    tagline: 'Secure, modern multi-level townhomes within private master-planned communities.',
     image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
     gallery: [
       'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80'
     ],
-    description: 'Elevated luxury dwelling blending natural timber facades with monolithic stone masonry, expansive entertainment deck, and panoramic vistas.',
-    features: ['Custom stone fireplace', 'Sub-Zero & Wolf chef suite', 'Heated infinity plunge pool', 'Wine cellar', 'Guest annex', 'Security automation'],
-    agent: MOCK_AGENTS[1]
+    description: 'Optimized modern living built within prestigious gated enclaves. Offers 24/7 security, paved roads, shared clubhouse amenities, and low-maintenance landscaped outdoor spaces.',
+    specifications: [
+      '3 to 4 bedroom duplex & triplex layouts',
+      'Custom stone countertops & imported tiles',
+      'Private rooftop lounge with pergola',
+      'Covered dual car parking bays',
+      'Underground drainage and paved walkways'
+    ],
+    deliverables: [
+      'Ready-to-move-in turnkey handover',
+      'Community management framework',
+      'Registered leasehold title certificates'
+    ],
+    suitableFor: 'Young professionals, growing families, and high-yield rental investors.'
   },
   {
-    id: 'prop-3',
-    title: 'Cantonments Contemporary Villa',
-    slug: 'cantonments-contemporary-villa',
-    category: 'house',
-    type: 'sale',
-    price: 1950000,
-    currency: '$',
-    priceFormatted: '$1,950,000',
-    address: 'Cantonments Diplomatic Zone, Accra',
-    city: 'Accra',
-    neighborhood: 'Cantonments',
-    bedrooms: 4,
-    bathrooms: 3,
-    sqft: 1868,
-    featured: true,
-    statusTag: 'Hot Deal',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
+    id: 'prop-commercial',
+    title: 'Commercial Complexes & Mixed-Use Plazas',
+    category: 'Commercial',
+    type: 'Off-Plan & Custom Build',
+    tagline: 'High-visibility corporate headquarters, retail plazas, and serviced office spaces.',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80'
     ],
-    description: 'Immaculately restored mid-century inspired contemporary residence with expansive lawn, outdoor dining pergola, and designer lighting schemes.',
-    features: ['Open-concept layout', 'Gourmet kitchen island', 'Primary retreat with soaking tub', 'Lush manicured lawn', 'EV charging station'],
-    agent: MOCK_AGENTS[0]
+    description: 'Purpose-built commercial properties engineered for institutional durability, high pedestrian traffic, and flexible corporate office partitioning. Full fiber-optic and commercial backup power ready.',
+    specifications: [
+      'Flexible open-plan floor plates',
+      'Heavy-duty commercial elevators & escalators',
+      'High-capacity standby industrial generators',
+      'Underground & surface commercial parking',
+      'Automated fire suppression & safety systems'
+    ],
+    deliverables: [
+      'Zoning and EPA regulatory clearances',
+      'Commercial lease structuring support',
+      'Turnkey MEP & HVAC engineering'
+    ],
+    suitableFor: 'Corporate headquarters, retail banking, medical clinics, and enterprise offices.'
   },
   {
-    id: 'prop-4',
-    title: 'Executive City Suite at Airport City',
-    slug: 'executive-city-suite-airport-city',
-    category: 'apartment',
-    type: 'sale',
-    price: 1120000,
-    currency: '$',
-    priceFormatted: '$1,120,000',
-    address: 'Airport City Commercial Boulevard, Accra',
-    city: 'Accra',
-    neighborhood: 'Airport City',
-    bedrooms: 3,
-    bathrooms: 3,
-    sqft: 1430,
-    featured: false,
-    statusTag: 'New Listing',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
+    id: 'prop-apartments',
+    title: 'Modern Urban Apartments & Condominiums',
+    category: 'Residential',
+    type: 'Turnkey Construction & Development',
+    tagline: 'Sophisticated city center apartments with premium resident leisure amenities.',
+    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80'
-    ],
-    description: 'Sleek multi-level luxury suite offering expansive skyline views, private terrace with fire pit lounge, and concierge security services.',
-    features: ['Private outdoor terrace', 'Floor-to-ceiling glazing', 'Building concierge', 'Fitness center access', 'Underground secure parking'],
-    agent: MOCK_AGENTS[2]
-  },
-  {
-    id: 'prop-5',
-    title: 'Osu Urban Studio Loft',
-    slug: 'osu-urban-studio-loft',
-    category: 'apartment',
-    type: 'sale',
-    price: 479000,
-    currency: '$',
-    priceFormatted: '$479,000',
-    address: 'Ringway Estate, Osu, Accra',
-    city: 'Accra',
-    neighborhood: 'Ringway',
-    bedrooms: 1,
-    bathrooms: 1,
-    sqft: 560,
-    featured: false,
-    statusTag: 'For Sale',
-    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
+      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80'
     ],
-    description: 'Bright, turnkey designer loft tailored for modern professionals or prime rental yield, featuring custom cabinetry and tranquil garden views.',
-    features: ['Minimalist finishes', 'In-unit laundry', 'Custom wardrobe', 'Bicycle storage', 'Low HOA fees'],
-    agent: MOCK_AGENTS[3]
+    description: 'Refined 1, 2, and 3-bedroom apartment complexes designed with efficient space planning, acoustic dampening, fitness centers, and rooftop pools for vibrant modern living.',
+    specifications: [
+      '1, 2 & 3 bedroom contemporary layouts',
+      'Floor-to-ceiling insulated double-glazed windows',
+      'Resident gymnasium & swimming pool',
+      'Concierge desk and controlled biometric access',
+      'Tonefo smart security integration'
+    ],
+    deliverables: [
+      'Off-plan milestone construction updates',
+      'Full sectional title registration',
+      'Dedicated property management support'
+    ],
+    suitableFor: 'First-time buyers, diaspora returnees, and short-let Airbnb investors.'
   },
   {
-    id: 'prop-6',
-    title: 'The Prampram Horizon Seaside Villa',
-    slug: 'prampram-horizon-seaside-villa',
-    category: 'villa',
-    type: 'sale',
-    price: 1780000,
-    currency: '$',
-    priceFormatted: '$1,780,000',
-    address: 'Coastal Beach Road, Prampram',
-    city: 'Prampram',
-    neighborhood: 'Coastal Beach Enclave',
-    bedrooms: 4,
-    bathrooms: 3,
-    sqft: 1868,
-    featured: false,
-    statusTag: 'Exclusive',
-    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80',
+    id: 'prop-eco-residences',
+    title: 'Smart Tonefo Eco-Residences',
+    category: 'Villas',
+    type: 'Off-Plan & Custom Build',
+    tagline: 'Sustainable architectural residences featuring full solar microgrids and smart gadgets.',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
     ],
-    description: 'Spectacular coastal villa featuring an infinity edge pool overlooking the ocean, expansive sun terraces, and seamless indoor-outdoor living.',
-    features: ['Infinity swimming pool', 'Sun deck terrace', 'Panoramic ocean views', 'Master suite with private balcony', 'Integrated audio system'],
-    agent: MOCK_AGENTS[0]
+    description: 'Next-generation green homes engineered to operate with ultra-low utility overheads. Powered by high-efficiency solar arrays, rainwater harvesting, and smart Tonefo electronics for automated climate and energy management.',
+    specifications: [
+      'Hybrid rooftop solar with lithium storage',
+      'Rainwater filtration & greywater recycling',
+      'Passive ventilation architectural orientation',
+      'Tonefo smart energy metering & sensors',
+      'Thermal insulation roofing and wall envelopes'
+    ],
+    deliverables: [
+      'Zero-grid dependency engineering certification',
+      'Tonefo 3-year warranty on all smart systems',
+      'Complete cadastral title handover'
+    ],
+    suitableFor: 'Eco-conscious homeowners, off-grid enthusiasts, and long-term cost optimizers.'
   }
 ];
 
-export const MOCK_LAND: LandParcel[] = [
+// ----------------------------------------------------
+// Titled Land Categories (No prices, Focus on verified title & zoning)
+// ----------------------------------------------------
+
+export const LAND_CATEGORIES_PORTFOLIO: LandCategoryPortfolio[] = [
   {
-    id: 'land-1',
-    title: 'Prime 12-Acre Master-Planned Development Site',
-    slug: 'prime-12-acre-development-site',
-    zoning: 'Mixed-Use',
-    type: 'sale',
-    price: 1850000,
-    priceFormatted: '$1,850,000',
-    acreage: '12.4 Acres (50,180 m²)',
-    dimensions: '320m x 156m perimeter',
-    location: 'Prampram Coastal Corridor, Greater Accra',
-    city: 'Prampram',
-    topography: 'Flat / Level',
-    utilities: ['Electricity Grid Access', 'Municipal Water Main', 'Asphalt Access Road', 'Fiber Optic Ready'],
-    titleStatus: 'Titled / Registered Deed',
+    id: 'land-residential',
+    title: 'Titled Residential Estate Plots',
+    zoning: 'Residential',
+    tagline: '100% litigation-free surveyed land parcels ready for immediate residential construction.',
+    titleStatus: 'Litigation-Free Registered Deed',
     image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?auto=format&fit=crop&w=1200&q=80'
     ],
-    description: 'Premier large-scale parcel surveyed and demarcated for mixed-use residential gated community or institutional campus development. Zero litigation risk with fully certified Lands Commission registry search.',
-    highlights: ['Direct highway frontage', 'Clear cadastral plan', 'Soil load-bearing tests certified', 'Approved subdivision schema available']
+    description: 'Authentically acquired and fully registered land parcels in high-growth corridors. Each parcel has certified cadastral beacons, clear access roads, and immediate proximity to the national electrical grid.',
+    keyFeatures: [
+      'Verified Lands Commission cadastral records',
+      'Demarcated with permanent concrete boundary beacons',
+      'Zero chieftaincy or family ownership disputes',
+      'Immediate site clearance and excavation clearance'
+    ],
+    infrastructureReady: [
+      'Access road grading completed',
+      'Electricity poles and distribution lines',
+      'Pipe-borne water connectivity'
+    ],
+    allocationSizes: 'Available in Half-Plots (35x100ft), Full Standard Plots (70x100ft), and Multi-Plot Compounds (1 to 5 Acres).'
   },
   {
-    id: 'land-2',
-    title: 'Executive Residential Hilltop Plots (Plots 14–22)',
-    slug: 'executive-residential-hilltop-plots',
-    zoning: 'Residential',
-    type: 'sale',
-    price: 85000,
-    priceFormatted: '$85,000 / plot',
-    acreage: '70ft x 100ft per plot (0.16 Acre)',
-    dimensions: '21.3m x 30.5m',
-    location: 'Aburi Scenic Ridge, Eastern Region',
-    city: 'Aburi',
-    topography: 'Elevated View',
-    utilities: ['Underground Power Lines', 'Borehole Water Supply', 'Gated Security Access'],
-    titleStatus: 'Freehold Available',
-    image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80'
-    ],
-    description: 'Elevated residential plots offering breathtaking vistas of the valley below, cooler micro-climate, and premium paved road network.',
-    highlights: ['Panoramic views', 'Fresh mountain climate', 'Perimeter fencing installed', 'Survey pillars established']
-  },
-  {
-    id: 'land-3',
-    title: 'Tema Industrial & Logistics Park Parcel',
-    slug: 'tema-industrial-logistics-parcel',
-    zoning: 'Industrial',
-    type: 'sale',
-    price: 920000,
-    priceFormatted: '$920,000',
-    acreage: '5.8 Acres',
-    dimensions: '240m x 98m',
-    location: 'Tema Motorway Industrial Corridor',
-    city: 'Tema',
-    topography: 'Cleared',
-    utilities: ['3-Phase Industrial Power', 'Heavy Commercial Drainage', 'High-capacity Water Line'],
-    titleStatus: 'Master Leasehold',
+    id: 'land-commercial',
+    title: 'Commercial & Mixed-Use Land Parcels',
+    zoning: 'Commercial',
+    tagline: 'Strategic highway and arterial frontage land zoned for commercial enterprise and retail.',
+    titleStatus: 'Lands Commission Verified',
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
     gallery: [
       'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80'
     ],
-    description: 'Strategically located along key transport arteries, perfectly suited for warehousing, logistics depot, or assembly manufacturing facility.',
-    highlights: ['Heavy vehicle turn radius access', 'Near Port of Tema', 'Immediate building permit readiness']
+    description: 'High-visibility commercial parcels along major growth corridors. Ideal for retail malls, corporate office hubs, educational institutions, medical complexes, or fueling stations.',
+    keyFeatures: [
+      'Commercial zoning certificate granted',
+      'High vehicle & pedestrian traffic visibility',
+      'Wide arterial road frontage with curb cuts',
+      'Unencumbered master commercial title'
+    ],
+    infrastructureReady: [
+      'Heavy-duty commercial access roads',
+      'High-voltage three-phase power line access',
+      'Stormwater management corridors'
+    ],
+    allocationSizes: 'Available in 1-Acre to 20-Acre contiguous commercial parcels.'
+  },
+  {
+    id: 'land-gated',
+    title: 'Master-Planned Gated Community Parcels',
+    zoning: 'Gated Community',
+    tagline: 'Secured enclave plots with unified architectural guidelines, paved roads, and security.',
+    titleStatus: 'Litigation-Free Registered Deed',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
+    ],
+    description: 'Exclusive parcels situated inside fully planned residential enclaves with perimeter boundary walls, 24/7 security checkpoints, underground drainage, and dedicated community recreational zones.',
+    keyFeatures: [
+      'Enclosed perimeter walling with security post',
+      'Planned green parks and communal sports facilities',
+      'Standardized civil development covenants',
+      'Prompt title deed transfer upon allocation'
+    ],
+    infrastructureReady: [
+      'Interlocking paver access roads',
+      'Underground electrical cabling conduits',
+      'Dedicated central water reservoir'
+    ],
+    allocationSizes: 'Standard 70x100ft and 100x100ft prime residential plots.'
+  },
+  {
+    id: 'land-industrial',
+    title: 'Industrial & Logistics Heavy Acreage',
+    zoning: 'Industrial',
+    tagline: 'Expansive flat land zoned for light manufacturing, warehousing, and transport hubs.',
+    titleStatus: 'Cadastral Survey Certified',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80'
+    ],
+    description: 'Level, heavy-bearing land parcels tailored for logistics distribution hubs, factory warehouses, processing plants, and equipment yards with direct arterial road links.',
+    keyFeatures: [
+      'Heavy industrial zoning endorsement',
+      'High soil load-bearing capacity surveyed',
+      'Wide turning radius for articulated trucks',
+      'Long-term leasehold covenants with renewal rights'
+    ],
+    infrastructureReady: [
+      'Industrial grade road foundation',
+      'Proximity to major national highways',
+      'Dedicated industrial power substation proximity'
+    ],
+    allocationSizes: 'Available in 5 to 50+ Acres bulk blocks.'
   }
 ];
 
-export const MOCK_SERVICES: ServicePillar[] = [
+// ----------------------------------------------------
+// Service Pillars
+// ----------------------------------------------------
+
+export const SERVICE_PILLARS: ServicePillar[] = [
   {
-    id: 'service-1',
-    title: 'Real Estate Sales & Property Rentals',
-    tagline: 'Precision property acquisition, sales, and verified rentals',
+    id: 'service-land',
+    title: 'Litigation-Free Land Sales & Acquisition',
+    tagline: 'Guaranteed legal certainty, registered title deeds, and cadastral survey accuracy.',
+    iconName: 'ShieldCheck',
+    description: 'We eliminate land disputes completely. Every acre in our portfolio undergoes thorough Lands Commission validation, traditional authority sign-off, and judicial search before allocation.',
+    deliverables: [
+      'Lands Commission official search report',
+      'Barcoded site plan signed by licensed surveyor',
+      'Indentures and registered title transfer documents',
+      'Free guided on-site inspection and beacon identification'
+    ],
+    workflow: [
+      { step: '01', title: 'Consultation & Site Tour', desc: 'Select your preferred location and inspect the land with our certified surveyor.' },
+      { step: '02', title: 'Cadastral & Title Due Diligence', desc: 'Review Lands Commission records, barcoded plans, and verification filings.' },
+      { step: '03', title: 'Documentation & Deed Transfer', desc: 'Sign indentures and receive your authentic registered deed and beacon coordinates.' }
+    ]
+  },
+  {
+    id: 'service-construction',
+    title: 'Turnkey Building & Civil Construction',
+    tagline: 'From architectural concept to full structural completion with uncompromised quality.',
     iconName: 'Building2',
-    description: 'Browse verified homes, luxury villas, rentals, and investment opportunities with a team that understands what matters in every neighborhood.',
+    description: 'We provide end-to-end building construction for private villas, residential estates, and commercial structures with strict adherence to structural engineering standards.',
     deliverables: [
-      'Commercial & Residential Acquisition Advisory',
-      'Exclusive Listing & Premium Marketing Campaigns',
-      'Asset Valuation & Comparative Market Analysis (CMA)',
-      'Tenancy & Facility Management Services'
+      'Architectural 3D renderings and structural engineering blueprints',
+      'Bill of Quantities (BOQ) with transparent milestone costs',
+      'Dedicated on-site project management and quality testing',
+      'Final turnkey handover with 10-year structural guarantee'
     ],
     workflow: [
-      { step: '01', title: 'Needs Assessment', desc: 'Detailed portfolio audit, yield requirements, and timeline alignment.' },
-      { step: '02', title: 'Curated Sourcing', desc: 'Direct access to vetted prime properties in Accra and top growth regions.' },
-      { step: '03', title: 'Title Diligence', desc: 'Comprehensive Lands Commission and statutory registry searches.' },
-      { step: '04', title: 'Closing & Handover', desc: 'Seamless deed execution, indenture stamping, and property onboarding.' }
+      { step: '01', title: 'Architectural Design & BOQ', desc: 'Custom structural design tailored to your lifestyle and land topography.' },
+      { step: '02', title: 'Milestone-Based Construction', desc: 'Foundations, blockwork, lintels, and roofing with photo updates.' },
+      { step: '03', title: 'Interior Finishing & Key Handover', desc: 'Premium tiling, electricals, plumbing, and turnkey walk-through.' }
     ]
   },
   {
-    id: 'service-2',
-    title: 'Land Allocation & Cadastral Titling',
-    tagline: '100% litigation-free land development and cadastral precision',
-    iconName: 'Compass',
-    description: 'JCL Royal Group specializes in end-to-end land acquisition, precision cadastral surveying, master-planned parcel subdivision, and legal title registration.',
-    deliverables: [
-      'Cadastral Boundary Surveying & Pillar Demarcation',
-      'Master Subdivision Planning & Zoning Approvals',
-      'Lands Commission Title Registration & Search Processing',
-      'Large-Acreage Acquisition & Traditional Land Due Diligence'
-    ],
-    workflow: [
-      { step: '01', title: 'Boundary Demarcation', desc: 'GNSS/RTK high-precision topographic mapping and pillar planting.' },
-      { step: '02', title: 'Registry Search', desc: 'Rigorous 3-tier statutory registry verification across Lands Commission records.' },
-      { step: '03', title: 'Master Plan Zoning', desc: 'Civil layouts designed for roads, utilities, and green corridors.' },
-      { step: '04', title: 'Indenture & Titling', desc: 'Execution of stamped deeds and issuance of official land title certificates.' }
-    ]
-  },
-  {
-    id: 'service-3',
-    title: 'Building & Civil Construction',
-    tagline: 'Engineering excellence from earthworks to turnkey delivery',
-    iconName: 'HardHat',
-    description: 'From planning to completion, we manage construction projects with quality craftsmanship, clear timelines, compliance with local building standards, and attention to detail.',
-    deliverables: [
-      'Turnkey Residential & Commercial Construction',
-      'Site Earthworks, Road Grading & Asphalt Paving',
-      'Reinforced Concrete & Steel Structural Engineering',
-      'MEP (Mechanical, Electrical, Plumbing) System Integration'
-    ],
-    workflow: [
-      { step: '01', title: 'Engineering Design', desc: 'Structural calculations and architectural coordination blueprints.' },
-      { step: '02', title: 'Permits & Approvals', desc: 'Municipal building permits and environmental clearance.' },
-      { step: '03', title: 'Site Execution', desc: 'Milestone-based construction with rigorous QA/QC inspection logs.' },
-      { step: '04', title: 'Commissioning', desc: 'System testing, inspection sign-off, and warranty documentation.' }
-    ]
-  },
-  {
-    id: 'service-4',
-    title: 'Tonefo — Electrical Gadgets & Smart Sourcing',
-    tagline: 'Supply, install, and technical support for modern homes and projects',
+    id: 'service-tonefo',
+    title: 'Tonefo Gadgets & Smart Electricals',
+    tagline: 'Direct sourcing of genuine electronics, smart home tech, and renewable energy gadgets.',
     iconName: 'Zap',
-    description: 'We curate and supply trusted electronics, manage seamless procurement and installation, and provide warranty and technical support so your technology keeps working for you.',
+    description: 'Our specialized retail and distribution arm delivers authentic electronics, solar power systems, and smart home appliances with direct manufacturer warranty.',
     deliverables: [
-      'Smart Home Automation & Lighting Controls',
-      'Premium Home Appliances & Electrical Equipment',
-      'Commercial Electrical Procurement & Bulk Sourcing',
-      'Full Warranty, Technical Installation & After-Sales Support'
+      'Authentic branded electronics and mobile devices',
+      'Complete solar power and backup battery installation',
+      'Smart home automation (CCTV, climate, remote lighting)',
+      'Direct manufacturer warranty and local repair support'
     ],
     workflow: [
-      { step: '01', title: 'Tech Consultation', desc: 'Determining gadget and electrical needs for your property.' },
-      { step: '02', title: 'Procurement', desc: 'Direct sourcing of certified appliances from trusted manufacturers.' },
-      { step: '03', title: 'Professional Installation', desc: 'Setup and wiring by certified electrical technicians.' },
-      { step: '04', title: 'Aftercare & Warranty', desc: 'Dedicated maintenance support and warranty protection.' }
+      { step: '01', title: 'Requirement Assessment', desc: 'Select gadget models or custom solar/smart-home system specs.' },
+      { step: '02', title: 'Rapid Delivery & Setup', desc: 'Fast nationwide dispatch and professional on-site installation.' },
+      { step: '03', title: 'Warranty & Support', desc: 'Ongoing technical assistance and warranty service directly by Tonefo.' }
+    ]
+  },
+  {
+    id: 'service-surveying',
+    title: 'Cadastral Surveying & Land Regularization',
+    tagline: 'Professional GPS boundary demarcation and Lands Commission title registration.',
+    iconName: 'Target',
+    description: 'Licensed surveyors and legal advisors assist private owners and corporate entities in mapping, resolving boundary questions, and securing official land title certificates.',
+    deliverables: [
+      'High-precision GPS cadastral survey with boundary beacons',
+      'Approved barcoded survey plans from Survey & Mapping Division',
+      'Lands Commission title application filing and follow-through',
+      'Land dispute mediation and boundary rectification'
+    ],
+    workflow: [
+      { step: '01', title: 'Site Coordinate Capture', desc: 'Precision survey using differential GPS equipment.' },
+      { step: '02', title: 'Plan Drawing & Barcoding', desc: 'Production and certification of official barcoded site plan.' },
+      { step: '03', title: 'Registry Filing', desc: 'Submission to Lands Commission for title deed generation.' }
     ]
   }
 ];
+
+// ----------------------------------------------------
+// Project Milestones
+// ----------------------------------------------------
 
 export const MOCK_PROJECTS: ProjectItem[] = [
   {
     id: 'proj-1',
-    title: 'Royal Haven Gated Enclave',
+    title: 'Royal Palms Master Residential Enclave',
     category: 'Residential Estate',
-    status: 'Completed',
-    location: 'East Legon Hills, Accra',
-    completionYear: '2025',
-    scope: '24 Luxury Detached & Semi-Detached Residences',
+    status: 'Under Construction',
+    scope: '45-Unit Modern Villa & Townhouse Community',
+    completionPeriod: 'Phase 1 Q4 2026',
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-    description: 'A master-planned private residential sanctuary featuring asphalt roads, underground drainage, central solar lighting, and recreational clubhouse.',
-    highlights: ['100% Sold Out', 'Underground utility network', '24/7 biometric security access']
+    description: 'An executive gated community featuring contemporary architectural villas, paved internal streets, integrated underground drainage, and a central recreation clubhouse.',
+    highlights: ['Paved dual-lane roads', '24/7 solar street lighting', 'Smart Tonefo security hub', 'Clubhouse & pool']
   },
   {
     id: 'proj-2',
-    title: 'Tonefo Commercial Horizon Complex',
+    title: 'JCL Commercial Logistics Hub',
     category: 'Commercial Complex',
-    status: 'Under Construction',
-    location: 'Airport City II, Accra',
-    completionYear: '2026',
-    scope: '7-Story Commercial Office & Retail Hub',
+    status: 'Completed',
+    scope: 'Multi-Tenant Commercial & Warehousing Facility',
+    completionPeriod: 'Delivered 2025',
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
-    description: 'An iconic commercial development engineered for corporate headquarters, Tonefo electronics flagship showroom, and executive rooftop lounges.',
-    highlights: ['Green Star Building standards', '3 levels of subterranean parking', 'High-speed smart elevators']
+    description: 'A 60,000 sqft light industrial and logistics facility engineered for corporate warehousing, cold storage, and regional distribution with direct highway frontage.',
+    highlights: ['Three-phase industrial power', 'Heavy vehicle turning yard', 'Automated fire suppression', 'CCTV monitoring']
   },
   {
     id: 'proj-3',
-    title: 'Palm Vista Oceanfront Land Subdivision',
-    category: 'Master Development',
+    title: 'Tonefo Smart Tech & Energy Centre',
+    category: 'Commercial Complex',
     status: 'Completed',
-    location: 'Prampram Beach Road, Greater Accra',
-    completionYear: '2024',
-    scope: '85 Fully Demarcated & Titled Residential Plots',
-    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80',
-    description: 'Coastal master-planned parcel allocation project with completed cadastral survey pillars, graded road network, and dedicated water substation.',
-    highlights: ['Clean registered title deeds', 'Direct ocean breeze corridor', '100% litigation-free certification']
+    scope: 'Retail Showroom, Tech Lab & Solar Hub',
+    completionPeriod: 'Delivered 2025',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+    description: 'The flagship commercial showroom and customer experience center for Tonefo electricals, featuring solar microgrid demonstrations and device repair stations.',
+    highlights: ['100% solar powered facility', 'Interactive gadget showroom', 'Certified technical repair wing', 'Diaspora pickup desk']
   }
 ];
+
+// ----------------------------------------------------
+// FAQs
+// ----------------------------------------------------
 
 export const MOCK_FAQS: FAQItem[] = [
   {
     id: 'faq-1',
-    question: 'What core services does JCL Royal Group provide?',
-    answer: 'JCL Royal Group provides integrated real estate solutions: property sales & rentals, litigation-free titled land parcels, civil construction & engineering, and electrical gadget supply & installation through our Tonefo division.',
-    category: 'General',
-    imagePreview: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80'
+    question: 'How does JCL ensure that all land is 100% litigation-free?',
+    answer: 'Before acquiring or listing any land parcel, our legal team conducts rigorous due diligence at the Lands Commission (Records, Survey and Mapping, and Land Title Registry divisions). We verify stool/family legitimacy, obtain certified cadastral plans, and guarantee in writing that the land has zero court injunctions or overlapping claims.',
+    category: 'Land Acquisition'
   },
   {
     id: 'faq-2',
-    question: 'How do you guarantee that land parcels are litigation-free?',
-    answer: 'Under the leadership of Mr. Eric Kwaw and our licensed surveyors, we conduct 3-tier statutory registry searches at the Lands Commission, verify barcoded cadastral plans, and validate traditional authority roots before any parcel is allocated.',
-    category: 'Land & Legal'
+    question: 'Can diaspora clients purchase land or construct a home remotely?',
+    answer: 'Yes! More than 45% of our clients reside in the UK, USA, Canada, and Europe. We provide virtual site tours, barcoded coordinates for independent verification, milestone-by-milestone HD video construction updates, and formal contract execution via secure electronic and notarized protocols.',
+    category: 'Diaspora Services'
   },
   {
     id: 'faq-3',
-    question: 'What is Tonefo and how does it integrate with real estate?',
-    answer: 'Tonefo is JCL Group’s electrical gadgets and smart home division. We supply, install, and support quality home appliances, energy solutions, and electrical fixtures directly for your new home or renovation project.',
-    category: 'Tonefo'
+    question: 'What is the process for scheduling a site inspection?',
+    answer: 'Site inspections are conducted from Monday through Saturday. You can book an inspection directly via WhatsApp (+233 55 786 0299) or our online inquiry form. We provide transport from our office to the site with a certified surveyor on hand to confirm beacon boundaries.',
+    category: 'Site Inspection'
   },
   {
     id: 'faq-4',
-    question: 'Can I book a physical site inspection or tour?',
-    answer: 'Yes. You can contact us directly via WhatsApp (+233 55 786 0299) or fill out our online inspection form. We organize guided tours to residential properties and demarcated land sites in Accra, Prampram, and Aburi.',
-    category: 'Process'
+    question: 'What does Turnkey Construction cover with JCL Royal Group?',
+    answer: 'Our turnkey service covers the full spectrum: architectural concept, structural engineering drawings, municipal building permits, excavation, structural masonry, roofing, plumbing, electrical installations (including Tonefo smart automation), and luxury interior finishes—delivering keys to a move-in ready home.',
+    category: 'Construction'
   },
   {
     id: 'faq-5',
-    question: 'What payment options and split plans are available?',
-    answer: 'We provide flexible, structured milestone payment terms for both land acquisitions and off-plan residential developments to make property ownership smooth and accessible.',
-    category: 'Investment'
+    question: 'What warranties are provided on Tonefo gadgets and electrical installations?',
+    answer: 'All authentic Tonefo electrical products and solar installations come with a minimum 1 to 3-year manufacturer warranty, backed by local technical support and replacement guarantees across Ghana.',
+    category: 'Tonefo Gadgets'
   }
 ];
 
-// Authentic Client Testimonials directly from jclroyalgh.com
+// ----------------------------------------------------
+// Authentic Client Testimonials
+// ----------------------------------------------------
+
 export const MOCK_TESTIMONIALS: Testimonial[] = [
   {
     id: 'test-1',
-    quote: 'We found a home that matched our budget and move-in timeline. The process was clear, fast, and handled professionally from the first call to the final paperwork.',
-    author: 'Wilhelmina T. Lartey',
-    title: 'Homeowner & Property Buyer',
-    location: 'Accra, Ghana',
+    quote: 'Buying land in Ghana was something I feared due to family litigation stories. JCL Royal Group changed everything. Mr. Eric Kwaw and his team provided barcoded survey plans, assisted with the Lands Commission title, and within 3 weeks I had full possession of my registered parcel.',
+    author: 'Kofi Mensah Boateng',
+    title: 'Diaspora Investor (London, UK)',
+    location: 'Acquired 2 Residential Plots',
     rating: 5,
-    avatar: 'https://res.cloudinary.com/dlhyawc5e/image/upload/v1779223266/WILHELMINA_T._LARTEY_sjzlr4.png'
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'
   },
   {
     id: 'test-2',
-    quote: 'JCL Group helped us secure the right property and gave practical advice every step of the way. The service felt personal and genuinely reliable.',
-    author: 'Lydia Narh',
-    title: 'Real Estate Investor',
-    location: 'Greater Accra',
+    quote: 'JCL handled our 4-bedroom villa construction from foundation to final paint. The project was completed on schedule with weekly video updates. The integration of Tonefo smart lighting and solar backup is flawless.',
+    author: 'Dr. Evelyn Ansah',
+    title: 'Resident Homeowner',
+    location: 'Custom Villa Development',
     rating: 5,
-    avatar: 'https://res.cloudinary.com/dlhyawc5e/image/upload/v1779223261/LYDIA_NARH_xf8cll.jpg'
+    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80'
   },
   {
     id: 'test-3',
-    quote: 'I ordered electrical gadgets for my home and the recommendations were spot on. Good value, great support, and delivery was handled without stress.',
-    author: 'Abdul-Razak Mustapha',
-    title: 'Tonefo Electronics Customer',
-    location: 'Accra, Ghana',
+    quote: 'Tonefo gadgets and JCL land services are the most reliable in Accra. Transparent pricing, zero hidden fees, and prompt customer service every time.',
+    author: 'Samuel Osei-Tutu',
+    title: 'Commercial Developer',
+    location: 'Commercial Land & Sourcing',
     rating: 5,
-    avatar: 'https://res.cloudinary.com/dlhyawc5e/image/upload/v1779223265/ABDUL-RAZAK_MUSTAPHA_nzlqyn.png'
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80'
   }
 ];

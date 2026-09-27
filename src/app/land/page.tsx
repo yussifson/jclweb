@@ -6,154 +6,152 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingActions from '@/components/FloatingActions';
 import InquiryModal from '@/components/InquiryModal';
-import { MOCK_LAND, LandParcel } from '@/data/mockData';
-import { Compass, CheckCircle2, ShieldCheck, MapPin, Maximize2, FileText, ArrowRight } from 'lucide-react';
+import { LAND_CATEGORIES_PORTFOLIO, LandCategoryPortfolio } from '@/data/mockData';
+import { Compass, CheckCircle2, ShieldCheck, Check, FileCheck, ArrowRight, Layers } from 'lucide-react';
 
 export default function LandPage() {
   const [selectedZoning, setSelectedZoning] = useState('All');
   const [inquiryOpen, setInquiryOpen] = useState(false);
-  const [selectedParcel, setSelectedParcel] = useState<LandParcel | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<LandCategoryPortfolio | null>(null);
+
+  const categories = ['All', 'Residential', 'Commercial', 'Gated Community', 'Industrial'];
 
   const filteredLand = selectedZoning === 'All'
-    ? MOCK_LAND
-    : MOCK_LAND.filter(l => l.zoning.toLowerCase() === selectedZoning.toLowerCase());
+    ? LAND_CATEGORIES_PORTFOLIO
+    : LAND_CATEGORIES_PORTFOLIO.filter(l => l.zoning.toLowerCase() === selectedZoning.toLowerCase());
+
+  const handleInquireLand = (land: LandCategoryPortfolio) => {
+    setSelectedCategory(land);
+    setInquiryOpen(true);
+  };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white selection:bg-[#FF5500] selection:text-white">
-      <Navbar />
+    <div className="min-h-screen flex flex-col bg-white selection:bg-[#0466c8] selection:text-white">
+      <Navbar onOpenInquiry={() => setInquiryOpen(true)} />
 
-      <main className="flex-grow pt-24 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Page Header */}
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-xs font-bold text-[#0466c8] mb-3">
+      <main className="flex-grow pt-28 pb-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          {/* Page Header (Tridloop Pattern) */}
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-[#0466c8] text-xs font-bold uppercase tracking-wider shadow-xs">
               <Compass className="w-3.5 h-3.5 text-[#FF5500]" />
-              <span>Cadastral Surveyed &amp; Registered Parcels</span>
-            </span>
+              <span>100% Litigation-Free Cadastral Land</span>
+            </div>
             <h1 className="text-3xl sm:text-5xl font-extrabold text-[#001845] tracking-tight">
-              Titled Land &amp; Development Acreage
+              Titled Land &amp; Master-Planned Acreage
             </h1>
-            <p className="mt-3 text-sm text-slate-600 max-w-2xl mx-auto">
-              Guaranteed 100% litigation-free land offerings with barcoded cadastral plans, verified Lands Commission registration, and road infrastructure in Prampram, Aburi, and Tema.
+            <p className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
+              Authentically registered, surveyed with differential GPS, and backed by verified Lands Commission search documents. Ready for immediate construction across prime corridors.
             </p>
           </div>
 
-          {/* Guarantee Banner */}
-          <div className="bg-gradient-to-r from-[#032d60] via-[#0466c8] to-[#001845] text-white rounded-3xl p-6 sm:p-8 mb-12 shadow-float border border-blue-400/20">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left divide-y md:divide-y-0 md:divide-x divide-blue-400/30">
-              <div className="flex items-start space-x-3.5 pt-4 md:pt-0">
-                <ShieldCheck className="w-8 h-8 text-[#FF5500] shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="text-sm font-bold text-white">Litigation-Free Guarantee</h4>
-                  <p className="text-xs text-blue-100 mt-1">Multi-tier statutory searches at the Lands Commission before every allocation.</p>
-                </div>
+          {/* 3 Trust Guarantees Strip */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-[#F8FAFC] rounded-3xl p-7 border border-slate-200/90 shadow-sm space-y-3">
+              <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0466c8] flex items-center justify-center font-bold">
+                <ShieldCheck className="w-6 h-6" />
               </div>
-              <div className="flex items-start space-x-3.5 pt-4 md:pt-0 md:pl-6">
-                <FileText className="w-8 h-8 text-[#FF5500] shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="text-sm font-bold text-white">Barcoded Cadastral Plans</h4>
-                  <p className="text-xs text-blue-100 mt-1">GNSS / RTK boundary pillars demarcated by licensed surveyors.</p>
-                </div>
+              <h3 className="text-lg font-extrabold text-[#001845]">Litigation-Free Guarantee</h3>
+              <p className="text-xs text-slate-600 font-medium leading-relaxed">
+                Every acre undergoes thorough statutory searches at the Lands Commission and stool verification with zero overlapping claims.
+              </p>
+            </div>
+
+            <div className="bg-[#F8FAFC] rounded-3xl p-7 border border-slate-200/90 shadow-sm space-y-3">
+              <div className="w-12 h-12 rounded-2xl bg-[#FF5500]/10 text-[#FF5500] flex items-center justify-center font-bold">
+                <FileCheck className="w-6 h-6" />
               </div>
-              <div className="flex items-start space-x-3.5 pt-4 md:pt-0 md:pl-6">
-                <Maximize2 className="w-8 h-8 text-[#FF5500] shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="text-sm font-bold text-white">Zoned &amp; Road Ready</h4>
-                  <p className="text-xs text-blue-100 mt-1">Direct access to arterial road networks and municipal utility corridors.</p>
-                </div>
+              <h3 className="text-lg font-extrabold text-[#001845]">Barcoded Cadastral Plans</h3>
+              <p className="text-xs text-slate-600 font-medium leading-relaxed">
+                Boundary demarcations with concrete pillars and official barcoded site plans signed by licensed surveyors.
+              </p>
+            </div>
+
+            <div className="bg-[#F8FAFC] rounded-3xl p-7 border border-slate-200/90 shadow-sm space-y-3">
+              <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0466c8] flex items-center justify-center font-bold">
+                <Layers className="w-6 h-6" />
               </div>
+              <h3 className="text-lg font-extrabold text-[#001845]">Infrastructure Ready</h3>
+              <p className="text-xs text-slate-600 font-medium leading-relaxed">
+                Graded access roads, electrical distribution lines, and ready water conduits for immediate building development.
+              </p>
             </div>
           </div>
 
-          {/* Filter Chips */}
-          <div className="flex items-center space-x-2 overflow-x-auto pb-4 mb-8">
-            {['All', 'Residential', 'Commercial', 'Mixed-Use', 'Industrial'].map((zoning) => (
+          {/* Filter Bar */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-2">
+            {categories.map((zoning) => (
               <button
                 key={zoning}
                 onClick={() => setSelectedZoning(zoning)}
                 className={`px-5 py-2 rounded-full text-xs font-bold transition-all shrink-0 ${
                   selectedZoning === zoning
-                    ? 'bg-[#0466c8] text-white shadow-md'
-                    : 'bg-slate-50 text-slate-700 hover:bg-blue-50 hover:text-[#0466c8] border border-slate-200'
+                    ? 'bg-[#0466c8] text-white shadow-sm'
+                    : 'bg-[#F8FAFC] text-slate-700 hover:bg-slate-200 border border-slate-200'
                 }`}
               >
-                {zoning} Parcels
+                {zoning === 'All' ? 'All Land Portfolios' : `${zoning} Land`}
               </button>
             ))}
           </div>
 
           {/* Land Cards Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            {filteredLand.map((parcel) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {filteredLand.map((land) => (
               <div
-                key={parcel.id}
-                className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-card hover:shadow-float transition-all duration-300 flex flex-col justify-between group hover:border-blue-100"
+                key={land.id}
+                className="bg-white rounded-[32px] border border-slate-200/90 shadow-xl hover:shadow-2xl hover:border-[#0466c8] transition-all duration-300 p-7 flex flex-col justify-between group space-y-6"
               >
-                <div>
-                  {/* Image */}
-                  <div className="relative aspect-[16/10] w-full bg-slate-100 overflow-hidden">
-                    <Image
-                      src={parcel.image}
-                      alt={parcel.title}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-3 left-3">
-                      <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-xs font-bold text-[#0466c8] shadow-sm">
-                        {parcel.zoning}
-                      </span>
-                    </div>
-                    <div className="absolute top-3 right-3">
-                      <span className="px-3 py-1 rounded-full bg-[#FF5500] text-white text-[11px] font-bold shadow-neon">
-                        {parcel.titleStatus}
-                      </span>
-                    </div>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="px-3.5 py-1 rounded-full bg-blue-50 text-[#0466c8] text-xs font-black border border-blue-100">
+                      {land.zoning}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-bold border border-emerald-200">
+                      <Check className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>{land.titleStatus}</span>
+                    </span>
                   </div>
 
-                  {/* Body */}
-                  <div className="p-6">
-                    <div className="flex items-baseline justify-between mb-2">
-                      <span className="text-2xl font-black text-[#001845] tracking-tight">
-                        {parcel.priceFormatted}
-                      </span>
-                      <span className="text-xs font-bold text-slate-500">{parcel.acreage}</span>
-                    </div>
+                  <div className="relative h-60 rounded-2xl overflow-hidden bg-slate-100">
+                    <Image
+                      src={land.image}
+                      alt={land.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
 
-                    <h3 className="text-lg font-bold text-slate-900 mb-2 leading-snug group-hover:text-[#0466c8] transition-colors">
-                      {parcel.title}
-                    </h3>
+                  <h3 className="text-xl font-extrabold text-[#001845] tracking-tight">
+                    {land.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                    {land.description}
+                  </p>
 
-                    <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-4">
-                      <MapPin className="w-3.5 h-3.5 text-[#FF5500] shrink-0" />
-                      <span>{parcel.location}</span>
-                    </div>
+                  <div className="space-y-2 pt-3 border-t border-slate-100 text-xs font-semibold text-slate-700">
+                    {land.keyFeatures.map((feat, idx) => (
+                      <div key={idx} className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-[#0466c8] shrink-0" />
+                        <span>{feat}</span>
+                      </div>
+                    ))}
+                  </div>
 
-                    <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                      {parcel.description}
-                    </p>
-
-                    {/* Highlights */}
-                    <div className="space-y-1.5 pt-3 border-t border-slate-100">
-                      {parcel.highlights.map((hl, i) => (
-                        <div key={i} className="flex items-center gap-2 text-xs text-slate-700">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                          <span>{hl}</span>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 text-xs text-slate-600 space-y-1">
+                    <strong className="text-[#001845] block">Plot Allocation Units:</strong>
+                    <span>{land.allocationSizes}</span>
                   </div>
                 </div>
 
-                <div className="p-6 pt-0">
+                <div className="pt-2">
                   <button
-                    onClick={() => {
-                      setSelectedParcel(parcel);
-                      setInquiryOpen(true);
-                    }}
-                    className="w-full py-3 rounded-full bg-[#0466c8] hover:bg-[#034078] text-white text-xs font-bold transition-all flex items-center justify-center space-x-2 shadow-sm"
+                    onClick={() => handleInquireLand(land)}
+                    className="w-full py-3.5 rounded-full bg-[#0466c8] hover:bg-[#0353a4] text-white font-extrabold text-xs transition-all shadow-md flex items-center justify-center gap-2 hover:scale-[1.01]"
                   >
-                    <span>Request Site Survey &amp; Indenture</span>
+                    <span>Schedule Land Inspection Tour</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -161,39 +159,36 @@ export default function LandPage() {
             ))}
           </div>
 
-          {/* Land Acquisition Process Workflow */}
-          <div className="bg-slate-50 rounded-3xl p-8 sm:p-12 border border-slate-100">
-            <div className="text-center max-w-2xl mx-auto mb-10">
-              <span className="text-xs font-black uppercase tracking-wider text-[#FF5500] block mb-1">
-                Transparent Step-by-Step
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#001845] tracking-tight">
-                Land Acquisition &amp; Titling Process
-              </h3>
+          {/* Site Inspection Consultation Card */}
+          <div className="bg-[#F8FAFC] rounded-3xl p-8 sm:p-10 border border-slate-200/90 shadow-md flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-2 max-w-2xl text-center md:text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+                <CheckCircle2 className="w-4 h-4" />
+                <span>Free Guided Inspection (Monday – Saturday)</span>
+              </div>
+              <h4 className="text-lg sm:text-xl font-extrabold text-[#001845]">
+                Inspect Your Parcel with a Certified Surveyor
+              </h4>
+              <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                We provide transport from our office to inspect the land, confirm concrete boundary pillars, and review Lands Commission records in person or via video walkthrough.
+              </p>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              {[
-                { step: '01', title: 'Site Inspection & Cadastral Mapping', desc: 'Visit the demarcated site with our licensed surveyor to inspect boundary pillars.' },
-                { step: '02', title: 'Statutory Registry Search', desc: 'Execution of 3-tier search at the Lands Commission and traditional council.' },
-                { step: '03', title: 'Indenture & Site Plan Execution', desc: 'Preparation of certified barcoded site plans and legal deed of assignment.' },
-                { step: '04', title: 'Lands Commission Titling', desc: 'Submission for yellow card registration and final Land Title Certificate.' },
-              ].map((item) => (
-                <div key={item.step} className="p-5 rounded-2xl bg-white border border-slate-100 shadow-sm flex flex-col">
-                  <span className="text-2xl font-black text-[#FF5500] mb-2">{item.step}</span>
-                  <h4 className="text-sm font-bold text-slate-900 mb-1">{item.title}</h4>
-                  <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
+            <div className="shrink-0">
+              <button
+                onClick={() => setInquiryOpen(true)}
+                className="px-8 py-4 rounded-full bg-[#0466c8] hover:bg-[#0353a4] text-white font-extrabold text-sm transition-all shadow-xl shadow-[#0466c8]/25 inline-flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <span>Book Guided Tour</span>
+                <ArrowRight className="w-4 h-4 text-white" />
+              </button>
             </div>
           </div>
+
         </div>
       </main>
 
       <Footer />
-
       <FloatingActions onOpenInquiry={() => setInquiryOpen(true)} />
-
       <InquiryModal
         isOpen={inquiryOpen}
         onClose={() => setInquiryOpen(false)}

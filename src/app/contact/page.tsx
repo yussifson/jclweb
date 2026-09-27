@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingActions from '@/components/FloatingActions';
 import InquiryModal from '@/components/InquiryModal';
-import { MapPin, Phone, Mail, Clock, CheckCircle2, Send, Building2, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, CheckCircle2, Send, Building2, MessageCircle, Sparkles, ArrowRight } from 'lucide-react';
 import { COMPANY_INFO } from '@/data/mockData';
 
 export default function ContactPage() {
@@ -15,7 +15,7 @@ export default function ContactPage() {
     name: '',
     email: '',
     phone: '',
-    department: 'Real Estate Sales & Rentals',
+    department: 'Titled Land Acquisition & Due Diligence',
     siteInspectionDate: '',
     message: '',
   });
@@ -26,79 +26,81 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white selection:bg-[#FF5500] selection:text-white">
-      <Navbar />
+    <div className="min-h-screen flex flex-col bg-white selection:bg-[#0466c8] selection:text-white">
+      <Navbar onOpenInquiry={() => setInquiryOpen(true)} />
 
-      <main className="flex-grow pt-24 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-xs font-bold text-[#0466c8] mb-3 shadow-sm">
+      <main className="flex-grow pt-28 pb-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          {/* Header (Tridloop Pattern) */}
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-[#0466c8] text-xs font-bold uppercase tracking-wider shadow-xs">
               <Mail className="w-3.5 h-3.5 text-[#FF5500]" />
-              <span>Direct Official Communication</span>
-            </span>
+              <span>Direct Official Communications</span>
+            </div>
             <h1 className="text-3xl sm:text-5xl font-extrabold text-[#001845] tracking-tight">
               Get in Touch with JCL Royal Group
             </h1>
-            <p className="mt-3 text-sm text-slate-600 max-w-xl mx-auto">
-              Schedule a site inspection in Accra or Prampram, request land cadastral records, or speak with our Tonefo gadget and construction team.
+            <p className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed max-w-xl mx-auto">
+              Schedule a guided site inspection in Accra or Prampram, request Lands Commission search records, or speak with our Tonefo gadget team.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            
             {/* Left Column: Contact Information Cards */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-card">
-                <h3 className="text-lg font-bold text-[#001845] mb-6 flex items-center gap-2">
+              <div className="bg-[#F8FAFC] rounded-[32px] p-8 border border-slate-200/90 shadow-xl space-y-6">
+                <h3 className="text-xl font-extrabold text-[#001845] flex items-center gap-2">
                   <Building2 className="w-5 h-5 text-[#0466c8]" />
                   <span>Headquarters &amp; Principal Office</span>
                 </h3>
 
-                <div className="space-y-4 text-xs sm:text-sm text-slate-600">
-                  <div className="flex items-start space-x-3">
+                <div className="space-y-5 text-xs sm:text-sm text-slate-600">
+                  <div className="flex items-start space-x-3.5">
                     <MapPin className="w-5 h-5 text-[#FF5500] shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-slate-900 block">Location</span>
-                      <span>{COMPANY_INFO.address}</span>
+                      <span className="font-extrabold text-slate-900 block">Principal Location</span>
+                      <span className="font-medium">{COMPANY_INFO.address}</span>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-3">
-                    <Phone className="w-5 h-5 text-[#FF5500] shrink-0 mt-0.5" />
+                  <div className="flex items-start space-x-3.5">
+                    <Phone className="w-5 h-5 text-[#0466c8] shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-slate-900 block">Direct Telephone Lines</span>
-                      <div className="space-y-1 mt-1 text-slate-700 font-medium">
-                        <div>{COMPANY_INFO.phones[0].label}: <a href={`tel:${COMPANY_INFO.phones[0].clean}`} className="text-[#0466c8] font-bold hover:underline">{COMPANY_INFO.phones[0].number}</a></div>
-                        <div>Line 1: <a href={`tel:${COMPANY_INFO.phones[1].clean}`} className="text-[#0466c8] font-bold hover:underline">{COMPANY_INFO.phones[1].number}</a></div>
-                        <div>Line 2: <a href={`tel:${COMPANY_INFO.phones[2].clean}`} className="text-[#0466c8] font-bold hover:underline">{COMPANY_INFO.phones[2].number}</a></div>
-                        <div>Line 3: <a href={`tel:${COMPANY_INFO.phones[3].clean}`} className="text-[#0466c8] font-bold hover:underline">{COMPANY_INFO.phones[3].number}</a></div>
+                      <span className="font-extrabold text-slate-900 block">Telephone &amp; WhatsApp Lines</span>
+                      <div className="space-y-1 mt-1 text-slate-700 font-bold">
+                        <div>{COMPANY_INFO.phones[0].label}: <a href={`tel:${COMPANY_INFO.phones[0].clean}`} className="text-[#0466c8] hover:underline">{COMPANY_INFO.phones[0].number}</a></div>
+                        <div>Line 1: <a href={`tel:${COMPANY_INFO.phones[1].clean}`} className="text-[#0466c8] hover:underline">{COMPANY_INFO.phones[1].number}</a></div>
+                        <div>Line 2: <a href={`tel:${COMPANY_INFO.phones[2].clean}`} className="text-[#0466c8] hover:underline">{COMPANY_INFO.phones[2].number}</a></div>
+                        <div>Line 3: <a href={`tel:${COMPANY_INFO.phones[3].clean}`} className="text-[#0466c8] hover:underline">{COMPANY_INFO.phones[3].number}</a></div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-3">
+                  <div className="flex items-start space-x-3.5">
                     <Mail className="w-5 h-5 text-[#FF5500] shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-slate-900 block">Official Email</span>
+                      <span className="font-extrabold text-slate-900 block">Official Email</span>
                       <a href={`mailto:${COMPANY_INFO.email}`} className="text-[#0466c8] font-bold hover:underline">{COMPANY_INFO.email}</a>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-3">
-                    <Clock className="w-5 h-5 text-[#FF5500] shrink-0 mt-0.5" />
+                  <div className="flex items-start space-x-3.5">
+                    <Clock className="w-5 h-5 text-[#0466c8] shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-slate-900 block">Operating Hours</span>
-                      <span>Monday – Friday: 8:00 AM – 5:30 PM (GMT)<br />Saturday: 9:00 AM – 3:00 PM (Site Tours)</span>
+                      <span className="font-extrabold text-slate-900 block">Operating Hours</span>
+                      <span className="font-medium">Monday – Friday: 8:00 AM – 5:30 PM (GMT)<br />Saturday: 9:00 AM – 3:00 PM (Site Tours)</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-5 border-t border-slate-200">
+                <div className="pt-4 border-t border-slate-200">
                   <a
                     href={COMPANY_INFO.social.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center space-x-2 shadow-sm transition-all"
+                    className="w-full py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs flex items-center justify-center space-x-2 shadow-md transition-all hover:scale-[1.01]"
                   >
                     <MessageCircle className="w-4 h-4 fill-white" />
                     <span>Instant WhatsApp Chat (+233 55 786 0299)</span>
@@ -108,31 +110,35 @@ export default function ContactPage() {
             </div>
 
             {/* Right Column: Interactive Consultation & Inspection Form */}
-            <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-100 shadow-card">
+            <div className="lg:col-span-7 bg-white rounded-[32px] p-8 sm:p-10 border border-slate-200/90 shadow-xl">
               {submitted ? (
-                <div className="text-center py-12">
-                  <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
+                <div className="text-center py-12 space-y-4">
+                  <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-sm">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Inquiry Successfully Transmitted</h3>
-                  <p className="text-slate-600 text-xs sm:text-sm max-w-md mx-auto mb-6">
+                  <h3 className="text-2xl font-extrabold text-[#001845]">Inquiry Successfully Transmitted</h3>
+                  <p className="text-slate-600 text-xs sm:text-sm max-w-md mx-auto font-medium">
                     Thank you for contacting JCL Royal Group. An advisor will reach out to you within 2 business hours.
                   </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="px-6 py-2.5 rounded-full bg-[#0466c8] text-white text-xs font-bold"
-                  >
-                    Submit Another Inquiry
-                  </button>
+                  <div className="pt-4">
+                    <button
+                      onClick={() => setSubmitted(false)}
+                      className="px-6 py-2.5 rounded-full bg-[#0466c8] text-white text-xs font-bold"
+                    >
+                      Submit Another Inquiry
+                    </button>
+                  </div>
                 </div>
               ) : (
-                <div>
-                  <h3 className="text-2xl font-extrabold text-[#001845] tracking-tight mb-2">
-                    Send a Message or Book Site Inspection
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-500 mb-6">
-                    Fill out the form below to receive official property documentation, cadastral plans, or to schedule a guided site tour.
-                  </p>
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-2xl font-extrabold text-[#001845] tracking-tight">
+                      Send a Message or Book Site Inspection
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
+                      Fill out the form below to receive official property blueprints, cadastral plans, or to schedule a guided site tour.
+                    </p>
+                  </div>
 
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -179,10 +185,10 @@ export default function ContactPage() {
                           onChange={(e) => setFormData({ ...formData, department: e.target.value })}
                           className="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-800 font-bold focus:outline-none focus:border-[#0466c8] cursor-pointer"
                         >
-                          <option>Real Estate Sales &amp; Rentals</option>
-                          <option>Titled Land &amp; Cadastral Surveying</option>
-                          <option>Building &amp; Civil Construction</option>
-                          <option>Tonefo Gadgets &amp; Electricals</option>
+                          <option>Titled Land Acquisition &amp; Due Diligence</option>
+                          <option>Turnkey Residential &amp; Villa Building</option>
+                          <option>Commercial Complex Construction</option>
+                          <option>Tonefo Gadgets &amp; Solar Microgrids</option>
                         </select>
                       </div>
                     </div>
@@ -204,14 +210,14 @@ export default function ContactPage() {
                         required
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Please describe the property type, parcel location, budget, or specific inquiry..."
+                        placeholder="Please describe your development type, land requirements, or specific inquiry..."
                         className="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0466c8] resize-none"
                       />
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full py-4 rounded-2xl bg-[#FF5500] hover:bg-[#e04b00] text-white text-xs font-black transition-all shadow-neon flex items-center justify-center space-x-2 hover:scale-[1.01]"
+                      className="w-full py-4 rounded-full bg-[#0466c8] hover:bg-[#0353a4] text-white text-xs font-extrabold transition-all shadow-xl shadow-[#0466c8]/25 flex items-center justify-center space-x-2 hover:scale-[1.01]"
                     >
                       <Send className="w-3.5 h-3.5 text-white" />
                       <span>Transmit Inquiry to JCL Team</span>
@@ -220,13 +226,18 @@ export default function ContactPage() {
                 </div>
               )}
             </div>
+
           </div>
         </div>
       </main>
 
       <Footer />
       <FloatingActions onOpenInquiry={() => setInquiryOpen(true)} />
-      <InquiryModal isOpen={inquiryOpen} onClose={() => setInquiryOpen(false)} />
+      <InquiryModal
+        isOpen={inquiryOpen}
+        onClose={() => setInquiryOpen(false)}
+        defaultService="real-estate"
+      />
     </div>
   );
 }
