@@ -5,14 +5,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import FloatingActions from '@/components/FloatingActions';
 import PropertyCard from '@/components/PropertyCard';
-import AgentCard from '@/components/AgentCard';
 import PropertyModal from '@/components/PropertyModal';
 import InquiryModal from '@/components/InquiryModal';
 import FAQAccordion from '@/components/FAQAccordion';
 import {
   MOCK_PROPERTIES,
-  MOCK_AGENTS,
   MOCK_TESTIMONIALS,
   COMPANY_INFO,
   Property,
@@ -28,12 +27,8 @@ import {
   Maximize,
   Star,
   Sparkles,
-  PhoneCall,
-  CheckCircle2,
   ShieldCheck,
-  Compass,
-  HardHat,
-  Zap,
+  CheckCircle2,
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -63,14 +58,14 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col bg-white selection:bg-[#FF5500] selection:text-white">
       {/* Clean Top Header */}
-      <Navbar onOpenInquiry={() => handleOpenInquiry('real-estate')} />
+      <Navbar />
 
       <main className="flex-grow pt-20 md:pt-24">
         {/* ========================================================
-            HERO SECTION (Matching Reference Image)
+            HERO SECTION
            ======================================================== */}
         <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pt-4 pb-12">
-          <div className="relative rounded-4xl bg-slate-900 overflow-hidden min-h-[580px] lg:min-h-[620px] shadow-2xl flex flex-col justify-between p-6 sm:p-10 lg:p-14">
+          <div className="relative rounded-4xl bg-[#001845] overflow-hidden min-h-[580px] lg:min-h-[620px] shadow-2xl flex flex-col justify-between p-6 sm:p-10 lg:p-14">
             {/* Background Property Photo */}
             <Image
               src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80"
@@ -79,7 +74,7 @@ export default function HomePage() {
               priority
               className="object-cover object-center opacity-65 scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#001845]/90 via-[#001845]/60 to-transparent" />
 
             {/* Top Tag */}
             <div className="relative z-10">
@@ -98,14 +93,14 @@ export default function HomePage() {
                 </h1>
                 <Link
                   href="/properties"
-                  className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-full bg-white text-slate-900 text-xs font-bold hover:bg-slate-100 transition-all shadow-lg hover:scale-105"
+                  className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-full bg-white text-[#001845] text-xs font-bold hover:bg-blue-50 transition-all shadow-lg hover:scale-105"
                 >
                   <span>Explore All Properties</span>
                   <ArrowUpRight className="w-4 h-4 text-[#0466c8]" />
                 </Link>
               </div>
 
-              {/* Right Floating Search Card (Exact Reference Matching) */}
+              {/* Right Floating Search Card */}
               <div className="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-7 shadow-2xl border border-slate-100">
                 <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1 leading-snug">
                   Find your Best Property
@@ -157,9 +152,9 @@ export default function HomePage() {
 
                   {/* Spec Quick Indicator Row */}
                   <div className="flex items-center justify-between py-1.5 px-3 bg-blue-50/60 rounded-xl text-[11px] font-semibold text-[#0466c8]">
-                    <span className="flex items-center gap-1"><Bed className="w-3.5 h-3.5" /> 4 Bed</span>
-                    <span className="flex items-center gap-1"><Bath className="w-3.5 h-3.5" /> 2+ Bathroom</span>
-                    <span className="flex items-center gap-1"><Maximize className="w-3.5 h-3.5" /> 1,800+ sqft</span>
+                    <span className="flex items-center gap-1"><Bed className="w-3.5 h-3.5 text-[#0466c8]" /> 4 Bed</span>
+                    <span className="flex items-center gap-1"><Bath className="w-3.5 h-3.5 text-[#0466c8]" /> 2+ Bathroom</span>
+                    <span className="flex items-center gap-1"><Maximize className="w-3.5 h-3.5 text-[#0466c8]" /> 1,800+ sqft</span>
                   </div>
 
                   {/* Max Price Field */}
@@ -194,7 +189,7 @@ export default function HomePage() {
         </section>
 
         {/* ========================================================
-            PROOF & TRUST STRIP (Matching Reference Layout)
+            PROOF & TRUST STRIP
            ======================================================== */}
         <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pb-12 border-b border-slate-100">
@@ -236,7 +231,7 @@ export default function HomePage() {
               <div className="flex flex-wrap items-center gap-3">
                 <Link
                   href="/properties"
-                  className="px-5 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-all shadow-sm"
+                  className="px-5 py-2.5 rounded-full bg-[#001845] hover:bg-[#032d60] text-white text-xs font-bold transition-all shadow-sm"
                 >
                   More Listings
                 </Link>
@@ -253,7 +248,7 @@ export default function HomePage() {
         </section>
 
         {/* ========================================================
-            POPULAR LISTINGS (Matching Reference Design Grid)
+            POPULAR LISTINGS
            ======================================================== */}
         <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
@@ -268,7 +263,7 @@ export default function HomePage() {
 
             <Link
               href="/properties"
-              className="mt-3 sm:mt-0 inline-flex items-center space-x-1.5 px-4 py-2 rounded-full border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors shadow-sm self-start sm:self-auto"
+              className="mt-3 sm:mt-0 inline-flex items-center space-x-1.5 px-4 py-2 rounded-full border border-blue-200 text-xs font-bold text-[#0466c8] hover:bg-blue-50 transition-colors shadow-sm self-start sm:self-auto"
             >
               <span>Explore All</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -288,7 +283,7 @@ export default function HomePage() {
         </section>
 
         {/* ========================================================
-            POPULAR LOCATIONS / CITIES (Matching Circular Cards)
+            POPULAR LOCATIONS / CITIES
            ======================================================== */}
         <section className="py-12 bg-slate-50 border-y border-slate-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -303,7 +298,7 @@ export default function HomePage() {
               </div>
               <Link
                 href="/land"
-                className="inline-flex items-center space-x-1.5 px-4 py-2 rounded-full border border-slate-200 bg-white text-xs font-bold text-slate-700 hover:bg-slate-100 shadow-sm"
+                className="inline-flex items-center space-x-1.5 px-4 py-2 rounded-full border border-blue-200 bg-white text-xs font-bold text-[#0466c8] hover:bg-blue-50 shadow-sm"
               >
                 <span>Explore All</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -329,7 +324,7 @@ export default function HomePage() {
         </section>
 
         {/* ========================================================
-            FEATURED LISTING & TESTIMONIAL SPLIT (Matching Reference)
+            FEATURED LISTING & TESTIMONIAL SPLIT
            ======================================================== */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           <div className="text-left mb-6">
@@ -340,7 +335,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             {/* Left Card: Featured Property */}
-            <div className="lg:col-span-7 bg-slate-900 rounded-3xl overflow-hidden shadow-card relative min-h-[340px] group cursor-pointer"
+            <div className="lg:col-span-7 bg-[#001845] rounded-3xl overflow-hidden shadow-card relative min-h-[340px] group cursor-pointer"
               onClick={() => setSelectedProperty(MOCK_PROPERTIES[0])}
             >
               <Image
@@ -350,13 +345,13 @@ export default function HomePage() {
                 sizes="(max-width: 1024px) 100vw, 60vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#001845]/90 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white">
                 <span className="px-3 py-1 rounded-full bg-[#FF5500] text-white text-xs font-bold shadow-neon mb-2 inline-block">
                   Featured Masterpiece
                 </span>
                 <h3 className="text-xl sm:text-2xl font-bold">{MOCK_PROPERTIES[0].title}</h3>
-                <p className="text-xs text-slate-300">{MOCK_PROPERTIES[0].address}</p>
+                <p className="text-xs text-blue-100">{MOCK_PROPERTIES[0].address}</p>
               </div>
             </div>
 
@@ -367,12 +362,12 @@ export default function HomePage() {
                   &ldquo;Extraordinary <span className="text-[#FF5500] italic font-serif">performance!</span> Quick solutions. Highly recommended.&rdquo;
                 </h3>
                 <div className="flex items-center gap-3 pt-3 mb-6">
-                  <div className="relative w-11 h-11 rounded-full overflow-hidden bg-slate-100">
+                  <div className="relative w-11 h-11 rounded-full overflow-hidden bg-slate-100 ring-2 ring-blue-100">
                     <Image src={MOCK_TESTIMONIALS[0].avatar} alt={MOCK_TESTIMONIALS[0].author} fill className="object-cover" />
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-slate-900">{MOCK_TESTIMONIALS[0].author}</h4>
-                    <p className="text-[11px] text-slate-500">{MOCK_TESTIMONIALS[0].title}</p>
+                    <p className="text-[11px] text-[#0466c8] font-semibold">{MOCK_TESTIMONIALS[0].title}</p>
                   </div>
                 </div>
               </div>
@@ -409,7 +404,7 @@ export default function HomePage() {
               <span className="text-xs font-black uppercase tracking-wider text-[#0466c8] block mb-1">
                 Frequently Asked
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#001845] tracking-tight">
                 Got Questions? We Have Answers.
               </h2>
             </div>
@@ -420,6 +415,9 @@ export default function HomePage() {
 
       {/* Global Footer */}
       <Footer />
+
+      {/* Floating Action Buttons (WhatsApp + Inquire Now) */}
+      <FloatingActions onOpenInquiry={() => handleOpenInquiry('real-estate')} />
 
       {/* Property Details Modal */}
       <PropertyModal

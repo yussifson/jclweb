@@ -3,10 +3,13 @@
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import FloatingActions from '@/components/FloatingActions';
+import InquiryModal from '@/components/InquiryModal';
 import { MapPin, Phone, Mail, Clock, CheckCircle2, Send, Building2, MessageCircle } from 'lucide-react';
 import { COMPANY_INFO } from '@/data/mockData';
 
 export default function ContactPage() {
+  const [inquiryOpen, setInquiryOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -23,14 +26,14 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Navbar onOpenInquiry={() => {}} />
+    <div className="min-h-screen flex flex-col bg-white selection:bg-[#FF5500] selection:text-white">
+      <Navbar />
 
-      <main className="flex-grow pt-28 pb-20">
+      <main className="flex-grow pt-24 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-xs font-bold text-[#0466c8] mb-3">
+            <span className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-xs font-bold text-[#0466c8] mb-3 shadow-sm">
               <Mail className="w-3.5 h-3.5 text-[#FF5500]" />
               <span>Direct Official Communication</span>
             </span>
@@ -222,6 +225,8 @@ export default function ContactPage() {
       </main>
 
       <Footer />
+      <FloatingActions onOpenInquiry={() => setInquiryOpen(true)} />
+      <InquiryModal isOpen={inquiryOpen} onClose={() => setInquiryOpen(false)} />
     </div>
   );
 }

@@ -3,9 +3,10 @@
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import FloatingActions from '@/components/FloatingActions';
 import InquiryModal from '@/components/InquiryModal';
-import { MOCK_SERVICES, COMPANY_INFO } from '@/data/mockData';
-import { Building2, Compass, HardHat, Zap, CheckCircle2, ArrowRight, MessageCircle, Sparkles } from 'lucide-react';
+import { MOCK_SERVICES } from '@/data/mockData';
+import { Building2, Compass, HardHat, Zap, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
 
 export default function ServicesPage() {
   const [inquiryOpen, setInquiryOpen] = useState(false);
@@ -31,10 +32,10 @@ export default function ServicesPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Navbar onOpenInquiry={() => setInquiryOpen(true)} />
+    <div className="min-h-screen flex flex-col bg-white selection:bg-[#FF5500] selection:text-white">
+      <Navbar />
 
-      <main className="flex-grow pt-28 pb-20">
+      <main className="flex-grow pt-24 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -119,15 +120,6 @@ export default function ServicesPage() {
                           <span>{isTonefo ? 'Inquire Tonefo Products' : 'Engage Service'}</span>
                           <ArrowRight className="w-3.5 h-3.5" />
                         </button>
-                        <a
-                          href={COMPANY_INFO.social.whatsapp}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center space-x-2 px-5 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-sm"
-                        >
-                          <MessageCircle className="w-4 h-4 fill-white" />
-                          <span>WhatsApp Chat</span>
-                        </a>
                       </div>
                     </div>
 
@@ -157,6 +149,8 @@ export default function ServicesPage() {
       </main>
 
       <Footer />
+
+      <FloatingActions onOpenInquiry={() => setInquiryOpen(true)} />
 
       <InquiryModal
         isOpen={inquiryOpen}

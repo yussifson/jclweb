@@ -4,9 +4,10 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import FloatingActions from '@/components/FloatingActions';
 import InquiryModal from '@/components/InquiryModal';
 import { MOCK_PROJECTS } from '@/data/mockData';
-import { Building2, MapPin, Calendar, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
+import { Building2, MapPin, Calendar, CheckCircle2, ArrowRight } from 'lucide-react';
 
 export default function ProjectsPage() {
   const [filterStatus, setFilterStatus] = useState('All');
@@ -17,10 +18,10 @@ export default function ProjectsPage() {
     : MOCK_PROJECTS.filter(p => p.status.toLowerCase() === filterStatus.toLowerCase());
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Navbar onOpenInquiry={() => setInquiryOpen(true)} />
+    <div className="min-h-screen flex flex-col bg-white selection:bg-[#FF5500] selection:text-white">
+      <Navbar />
 
-      <main className="flex-grow pt-28 pb-20">
+      <main className="flex-grow pt-24 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-12">
@@ -133,6 +134,8 @@ export default function ProjectsPage() {
       </main>
 
       <Footer />
+
+      <FloatingActions onOpenInquiry={() => setInquiryOpen(true)} />
 
       <InquiryModal
         isOpen={inquiryOpen}

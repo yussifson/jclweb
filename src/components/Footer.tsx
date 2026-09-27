@@ -1,28 +1,28 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Building2, Mail, Phone, MapPin, ArrowRight, ShieldCheck, Award, FileCheck, MessageCircle } from 'lucide-react';
+import { Building2, Mail, Phone, MapPin, ArrowRight, ShieldCheck, Award, FileCheck } from 'lucide-react';
 import { COMPANY_INFO } from '@/data/mockData';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#001845] text-white pt-20 pb-12 border-t border-blue-900/60">
+    <footer className="bg-[#001845] text-white pt-16 pb-12 border-t border-blue-900/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Banner / Newsletter CTA */}
-        <div className="bg-gradient-to-r from-[#034078] via-[#0466c8] to-[#034078] border border-blue-400/30 rounded-3xl p-8 md:p-12 mb-16 shadow-2xl relative overflow-hidden">
-          <div className="absolute right-0 top-0 translate-x-12 -translate-y-12 w-96 h-96 bg-[#FF5500]/20 rounded-full blur-3xl pointer-events-none" />
+        {/* Top Newsletter CTA Banner with Harmonious Blue & Orange Blend */}
+        <div className="bg-gradient-to-r from-[#032d60] via-[#0466c8] to-[#001845] border border-blue-400/20 rounded-3xl p-8 md:p-12 mb-16 shadow-2xl relative overflow-hidden">
+          <div className="absolute right-0 top-0 translate-x-12 -translate-y-12 w-96 h-96 bg-[#FF5500]/15 rounded-full blur-3xl pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div className="lg:col-span-7">
               <span className="inline-flex items-center space-x-1.5 px-3.5 py-1 rounded-full bg-[#FF5500] text-white text-xs font-black tracking-wide uppercase mb-3 shadow-sm">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                <span>Verified Real Estate, Land &amp; Tonefo Gadgets</span>
+                <span>Verified Real Estate &amp; Land Development</span>
               </span>
               <h3 className="text-2xl md:text-4xl font-extrabold text-white tracking-tight">
-                Build your next home, investment, or gadget order with JCL Group
+                Build your next home or land investment with JCL Group
               </h3>
               <p className="mt-2 text-blue-100 text-sm md:text-base max-w-xl">
-                From luxury residences and titled land to smart electrical gadgets and construction management, get verified guidance tailored to your goals.
+                Get exclusive access to newly titled parcels, luxury off-plan residences, and certified cadastral surveys across Ghana.
               </p>
             </div>
 
@@ -31,7 +31,7 @@ export default function Footer() {
                 <input
                   type="email"
                   placeholder="Enter your email address..."
-                  className="px-5 py-3.5 rounded-full bg-white/10 border border-white/30 text-white placeholder-blue-200 text-sm focus:outline-none focus:border-[#FF5500] focus:bg-white/20 flex-1 shadow-inner"
+                  className="px-5 py-3.5 rounded-full bg-white/10 border border-white/20 text-white placeholder-blue-200 text-sm focus:outline-none focus:border-[#FF5500] focus:bg-white/20 flex-1 shadow-inner"
                   required
                 />
                 <button
@@ -47,16 +47,16 @@ export default function Footer() {
         </div>
 
         {/* 4-Column Navigation Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-blue-900/60">
-          {/* Brand Info */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-blue-900/40">
+          {/* Brand Info with Authentic Logo */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center space-x-3">
-              <div className="relative w-11 h-11 rounded-2xl bg-white flex items-center justify-center p-1 border border-white/20 shadow-md">
+              <div className="relative w-12 h-12 rounded-2xl bg-white flex items-center justify-center p-1 border border-white/20 shadow-md overflow-hidden">
                 <Image
-                  src={COMPANY_INFO.logo}
+                  src="/images/jcl-royal-group.jpg"
                   alt="JCL Royal Group"
-                  width={40}
-                  height={40}
+                  fill
+                  sizes="48px"
                   className="object-contain"
                 />
               </div>
@@ -65,15 +65,15 @@ export default function Footer() {
                   JCL <span className="text-[#FF5500] font-black text-sm tracking-wide">ROYAL GROUP</span>
                 </span>
                 <span className="text-[10px] text-blue-200 font-medium tracking-wider uppercase -mt-1">
-                  Real Estate &amp; Tonefo Electronics
+                  Real Estate &amp; Land Development
                 </span>
               </div>
             </Link>
-            <p className="text-blue-200 text-xs sm:text-sm leading-relaxed max-w-sm">
-              Your trusted partner for litigation-free registered land, bespoke residential properties, turnkey civil engineering, and authentic Tonefo electrical gadgets.
+            <p className="text-blue-100 text-xs sm:text-sm leading-relaxed max-w-sm">
+              Your trusted partner for litigation-free registered land, bespoke residential properties, and turnkey civil engineering across Ghana.
             </p>
-            
-            {/* Phone numbers from old website */}
+
+            {/* Contact Details */}
             <div className="pt-2 flex flex-col space-y-2 text-xs text-blue-100">
               <div className="flex items-center space-x-2.5">
                 <MapPin className="w-4 h-4 text-[#FF5500] shrink-0" />
@@ -82,10 +82,6 @@ export default function Footer() {
               <div className="flex items-center space-x-2.5">
                 <Phone className="w-4 h-4 text-[#FF5500] shrink-0" />
                 <span>{COMPANY_INFO.phones[0].number} / {COMPANY_INFO.phones[1].number}</span>
-              </div>
-              <div className="flex items-center space-x-2.5">
-                <Phone className="w-4 h-4 text-[#FF5500] shrink-0" />
-                <span>{COMPANY_INFO.phones[2].number} / {COMPANY_INFO.phones[3].number}</span>
               </div>
               <div className="flex items-center space-x-2.5">
                 <Mail className="w-4 h-4 text-[#FF5500] shrink-0" />
@@ -102,52 +98,42 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs sm:text-sm text-blue-200">
               <li><Link href="/properties" className="hover:text-white transition-colors">Residential Villas</Link></li>
               <li><Link href="/properties" className="hover:text-white transition-colors">Luxury Apartments</Link></li>
-              <li><Link href="/properties" className="hover:text-white transition-colors">Commercial Complexes</Link></li>
+              <li><Link href="/properties" className="hover:text-white transition-colors">Commercial Hubs</Link></li>
               <li><Link href="/land" className="hover:text-white transition-colors">Titled Land Parcels</Link></li>
               <li><Link href="/land" className="hover:text-white transition-colors">Prampram &amp; Aburi Plots</Link></li>
             </ul>
           </div>
 
-          {/* Capabilities & Tonefo */}
+          {/* Capabilities */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#FF5500] mb-4">
-              Divisions &amp; Services
+              Corporate Capabilities
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm text-blue-200">
-              <li><Link href="/services" className="hover:text-white transition-colors">Real Estate Sales &amp; Rentals</Link></li>
-              <li><Link href="/services" className="hover:text-white transition-colors">Land Cadastral Surveying</Link></li>
-              <li><Link href="/services" className="hover:text-white transition-colors">Building &amp; Construction</Link></li>
-              <li><Link href="/services#tonefo" className="hover:text-white transition-colors text-white font-semibold flex items-center gap-1">Tonefo Gadgets <span className="text-[10px] px-1.5 py-0.2 bg-[#FF5500] rounded-full text-white font-bold">HOT</span></Link></li>
+              <li><Link href="/services" className="hover:text-white transition-colors">Property Sales &amp; Rentals</Link></li>
+              <li><Link href="/services" className="hover:text-white transition-colors">Cadastral Land Surveying</Link></li>
+              <li><Link href="/services" className="hover:text-white transition-colors">Building &amp; Civil Construction</Link></li>
+              <li><Link href="/services#tonefo" className="hover:text-white transition-colors">Tonefo Gadgets Division</Link></li>
               <li><Link href="/projects" className="hover:text-white transition-colors">Project Portfolio</Link></li>
             </ul>
           </div>
 
-          {/* Company & Social */}
+          {/* Company & Connect */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#FF5500] mb-4">
-              Company &amp; Connect
+              Company &amp; Governance
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm text-blue-200">
               <li><Link href="/about" className="hover:text-white transition-colors">About Mr. Eric Kwaw &amp; Team</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">Book Guided Site Tour</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">General Inquiry</Link></li>
-              <li className="pt-2">
-                <a
-                  href={COMPANY_INFO.social.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-sm"
-                >
-                  <MessageCircle className="w-3.5 h-3.5 fill-white" />
-                  <span>WhatsApp Us</span>
-                </a>
-              </li>
+              <li><Link href="/about" className="hover:text-white transition-colors">Corporate Governance</Link></li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar & Accreditations */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-blue-300 gap-4">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-blue-200 gap-4">
           <div className="flex flex-wrap items-center gap-4">
             <span className="flex items-center space-x-1">
               <Award className="w-3.5 h-3.5 text-[#FF5500]" />
@@ -158,7 +144,7 @@ export default function Footer() {
               <span>100% Litigation-Free Guarantee</span>
             </span>
           </div>
-          <div className="text-center md:text-right">
+          <div className="text-center md:text-right text-blue-300">
             Copyright © {new Date().getFullYear()} JCL Royal Group Ltd. All rights reserved.
           </div>
         </div>

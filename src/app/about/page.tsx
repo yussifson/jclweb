@@ -4,41 +4,40 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import FloatingActions from '@/components/FloatingActions';
 import InquiryModal from '@/components/InquiryModal';
 import { MOCK_AGENTS, COMPANY_INFO } from '@/data/mockData';
-import { Building2, ShieldCheck, Award, Target, CheckCircle2, Zap, MessageCircle } from 'lucide-react';
+import { Building2, ShieldCheck, Award, Target, CheckCircle2, Zap } from 'lucide-react';
 
 export default function AboutPage() {
   const [inquiryOpen, setInquiryOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Navbar onOpenInquiry={() => setInquiryOpen(true)} />
+    <div className="min-h-screen flex flex-col bg-white selection:bg-[#FF5500] selection:text-white">
+      <Navbar />
 
-      <main className="flex-grow pt-28 pb-20">
+      <main className="flex-grow pt-24 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Story Banner */}
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-14">
             <span className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-xs font-bold text-[#0466c8] mb-3 shadow-sm">
               <Building2 className="w-3.5 h-3.5 text-[#FF5500]" />
               <span>About JCL Royal Group Ltd</span>
             </span>
             <h1 className="text-3xl sm:text-5xl font-extrabold text-[#001845] tracking-tight">
-              Pioneering Trusted Real Estate, Land &amp; Smart Electronics
+              Pioneering Trusted Real Estate &amp; Land Development
             </h1>
             <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              JCL Royal Group is a Ghanaian diversified conglomerate committed to dependable property solutions, litigation-free land acquisition, civil construction support, and trusted Tonefo electronics sourcing.
+              JCL Royal Group is a diversified real estate and land development company committed to dependable property solutions, litigation-free land acquisition, civil construction support, and trusted electronics sourcing across Ghana.
             </p>
           </div>
 
-          {/* ========================================================
-              CEO / FOUNDER SPOTLIGHT: MR. ERIC KWAW
-             ======================================================== */}
-          <div className="bg-gradient-to-r from-[#034078] via-[#0466c8] to-[#001845] text-white rounded-4xl p-8 sm:p-12 mb-16 shadow-float overflow-hidden relative">
+          {/* CEO / Founder Profile */}
+          <div className="bg-gradient-to-r from-[#032d60] via-[#0466c8] to-[#001845] text-white rounded-4xl p-8 sm:p-12 mb-16 shadow-float overflow-hidden relative border border-blue-400/20">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
               <div className="lg:col-span-7">
                 <span className="text-xs font-black uppercase tracking-wider text-[#FF5500] bg-white/10 px-3.5 py-1 rounded-full inline-block mb-3">
-                  CEO / Founder Profile
+                  Executive Leadership
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mb-2">
                   Mr. Eric Kwaw
@@ -56,23 +55,14 @@ export default function AboutPage() {
                   >
                     Consult with Executive Team
                   </button>
-                  <a
-                    href={COMPANY_INFO.social.whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition-all flex items-center gap-2"
-                  >
-                    <MessageCircle className="w-4 h-4 fill-white" />
-                    <span>WhatsApp Direct</span>
-                  </a>
                 </div>
               </div>
 
               <div className="lg:col-span-5 flex justify-center lg:justify-end">
-                <div className="relative w-full max-w-[340px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20 ring-4 ring-[#FF5500]/30 bg-slate-900">
+                <div className="relative w-full max-w-[320px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20 ring-4 ring-[#FF5500]/30 bg-slate-900">
                   <Image
                     src={COMPANY_INFO.ceo.image}
-                    alt="Mr. Eric Kwaw, CEO & Founder of JCL Royal Group"
+                    alt="Mr. Eric Kwaw, CEO & Founder"
                     fill
                     className="object-cover object-top"
                   />
@@ -85,7 +75,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Vision & Mission Cards */}
+          {/* Mission & Vision */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100 shadow-card flex flex-col justify-between">
               <div>
@@ -94,7 +84,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-xl font-bold text-[#001845] mb-3">Our Corporate Mission</h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  To eliminate risk in property acquisition and land ownership by combining certified cadastral surveying, rigorous Lands Commission search verifications, quality construction management, and trusted smart electronics for every Ghanaian home and investor.
+                  To eliminate risk in property acquisition and land ownership by combining certified cadastral surveying, rigorous Lands Commission search verifications, and quality construction management for every client.
                 </p>
               </div>
             </div>
@@ -106,20 +96,20 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-xl font-bold text-[#001845] mb-3">Our Long-Term Vision</h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  To become the most reliable multi-division brand across West Africa, acclaimed for litigation-free residential master developments, iconic commercial buildings, and quality Tonefo electrical lifestyle products.
+                  To become the premier trusted real estate and master development brand across West Africa, recognized for litigation-free residential enclaves, commercial towers, and architectural longevity.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* The JCL Difference */}
+          {/* Core Strengths */}
           <div className="bg-slate-50 rounded-4xl p-8 sm:p-12 mb-16 border border-slate-100">
             <div className="text-center max-w-2xl mx-auto mb-10">
               <span className="text-xs font-black uppercase tracking-wider text-[#FF5500] block mb-1">
                 Core Strengths
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#001845] tracking-tight">
-                The JCL Royal Group Difference
+                The JCL Royal Group Advantage
               </h2>
             </div>
 
@@ -150,7 +140,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Advisory & Senior Team */}
+          {/* Advisory Team */}
           <div className="mb-16">
             <div className="text-center max-w-2xl mx-auto mb-10">
               <span className="text-xs font-black uppercase tracking-wider text-[#0466c8] block mb-1">
@@ -178,6 +168,8 @@ export default function AboutPage() {
       </main>
 
       <Footer />
+
+      <FloatingActions onOpenInquiry={() => setInquiryOpen(true)} />
 
       <InquiryModal
         isOpen={inquiryOpen}

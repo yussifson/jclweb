@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import FloatingActions from '@/components/FloatingActions';
 import PropertyCard from '@/components/PropertyCard';
 import PropertyModal from '@/components/PropertyModal';
 import InquiryModal from '@/components/InquiryModal';
@@ -68,10 +69,10 @@ export default function PropertiesPage() {
   }, [selectedCategory, selectedType, selectedLocation, selectedBeds, searchQuery, sortBy]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Navbar onOpenInquiry={() => setInquiryOpen(true)} />
+    <div className="min-h-screen flex flex-col bg-white selection:bg-[#FF5500] selection:text-white">
+      <Navbar />
 
-      <main className="flex-grow pt-28 pb-20">
+      <main className="flex-grow pt-24 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header Banner */}
           <div className="mb-10 text-center max-w-2xl mx-auto">
@@ -149,7 +150,6 @@ export default function PropertiesPage() {
                   <option value="Accra">Accra (Airport, East Legon, Cantonments)</option>
                   <option value="Prampram">Prampram Coastal Enclave</option>
                   <option value="Aburi">Aburi Hilltop</option>
-                  <option value="San Jose">San Jose Partner Enclave</option>
                 </select>
               </div>
 
@@ -237,6 +237,8 @@ export default function PropertiesPage() {
       </main>
 
       <Footer />
+
+      <FloatingActions onOpenInquiry={() => setInquiryOpen(true)} />
 
       {/* Property Details Modal */}
       <PropertyModal

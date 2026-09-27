@@ -4,9 +4,10 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import FloatingActions from '@/components/FloatingActions';
 import InquiryModal from '@/components/InquiryModal';
-import { MOCK_LAND, LandParcel, COMPANY_INFO } from '@/data/mockData';
-import { Compass, CheckCircle2, ShieldCheck, MapPin, Maximize2, FileText, ArrowRight, MessageCircle } from 'lucide-react';
+import { MOCK_LAND, LandParcel } from '@/data/mockData';
+import { Compass, CheckCircle2, ShieldCheck, MapPin, Maximize2, FileText, ArrowRight } from 'lucide-react';
 
 export default function LandPage() {
   const [selectedZoning, setSelectedZoning] = useState('All');
@@ -18,10 +19,10 @@ export default function LandPage() {
     : MOCK_LAND.filter(l => l.zoning.toLowerCase() === selectedZoning.toLowerCase());
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Navbar onOpenInquiry={() => setInquiryOpen(true)} />
+    <div className="min-h-screen flex flex-col bg-white selection:bg-[#FF5500] selection:text-white">
+      <Navbar />
 
-      <main className="flex-grow pt-28 pb-20">
+      <main className="flex-grow pt-24 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Page Header */}
           <div className="text-center max-w-3xl mx-auto mb-12">
@@ -37,8 +38,8 @@ export default function LandPage() {
             </p>
           </div>
 
-          {/* Guarantee Banner with Blue #0466c8 & Neon Orange #FF5500 */}
-          <div className="bg-gradient-to-r from-[#034078] via-[#0466c8] to-[#001845] text-white rounded-3xl p-6 sm:p-8 mb-12 shadow-float border border-blue-400/30">
+          {/* Guarantee Banner */}
+          <div className="bg-gradient-to-r from-[#032d60] via-[#0466c8] to-[#001845] text-white rounded-3xl p-6 sm:p-8 mb-12 shadow-float border border-blue-400/20">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left divide-y md:divide-y-0 md:divide-x divide-blue-400/30">
               <div className="flex items-start space-x-3.5 pt-4 md:pt-0">
                 <ShieldCheck className="w-8 h-8 text-[#FF5500] shrink-0 mt-0.5" />
@@ -144,7 +145,7 @@ export default function LandPage() {
                   </div>
                 </div>
 
-                <div className="p-6 pt-0 space-y-2">
+                <div className="p-6 pt-0">
                   <button
                     onClick={() => {
                       setSelectedParcel(parcel);
@@ -155,15 +156,6 @@ export default function LandPage() {
                     <span>Request Site Survey &amp; Indenture</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
-                  <a
-                    href={COMPANY_INFO.social.whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all flex items-center justify-center space-x-2 shadow-sm"
-                  >
-                    <MessageCircle className="w-3.5 h-3.5 fill-white" />
-                    <span>Inquire on WhatsApp</span>
-                  </a>
                 </div>
               </div>
             ))}
@@ -199,6 +191,8 @@ export default function LandPage() {
       </main>
 
       <Footer />
+
+      <FloatingActions onOpenInquiry={() => setInquiryOpen(true)} />
 
       <InquiryModal
         isOpen={inquiryOpen}
