@@ -124,6 +124,18 @@ export const MOCK_AGENTS: Agent[] = [
     bio: 'Visionary leadership spearheading nationwide real estate master-developments, litigation-free land allocation, and Tonefo gadget distribution.'
   },
   {
+    id: 'agent-account-manager',
+    name: 'Account Manager',
+    role: 'Account Manager & Client Relations',
+    specialty: 'Client Portfolios, Corporate Accounts & Indenture Verification',
+    rating: 5.0,
+    projectsSupervised: 380,
+    image: '/images/team/account-manager.jpg',
+    phone: '053 110 1123',
+    email: 'jclroyals26@gmail.com',
+    bio: 'Oversees client portfolio management, escrow facilitation, indenture documentation, and dedicated advisory for diaspora and resident investors.'
+  },
+  {
     id: 'agent-1',
     name: 'Amelia Stephenson',
     role: 'Principal Property Consultant',
