@@ -48,7 +48,7 @@ body {
   scrollbar-width: none;
 }
 
-/* Animations for Mobile Drawer */
+/* Animations for Mobile Drawer / Sheet */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -59,10 +59,19 @@ body {
   to { transform: translateX(0); }
 }
 
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
 .animate-fadeIn {
   animation: fadeIn 0.2s ease-out forwards;
 }
 
 .animate-slideLeft {
   animation: slideLeft 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
