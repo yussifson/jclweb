@@ -8,7 +8,7 @@ import { COMPANY_INFO } from '@/data/mockData';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F8FAFC] text-[#001845] pt-20 pb-12 mt-auto border-t border-slate-200/80">
+    <footer className="bg-[#F8FAFC] text-[#001845] pt-20 pb-24 md:pb-12 mt-auto border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
         {/* Top Brand & Floating Nav Section (Tridloop Architectural Pattern) */}

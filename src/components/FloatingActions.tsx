@@ -12,7 +12,7 @@ export default function FloatingActions({ onOpenInquiry }: FloatingActionsProps)
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-3">
+    <div className="fixed bottom-20 right-4 md:bottom-6 md:right-6 z-40 flex flex-col items-end space-y-3">
       {/* Expanded Quick Contact Menu */}
       {isOpen && (
         <div className="bg-white rounded-3xl p-4 shadow-2xl border border-slate-100 mb-2 flex flex-col space-y-2.5 animate-fadeIn w-64">
