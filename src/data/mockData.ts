@@ -95,18 +95,50 @@ export const COMPANY_INFO = {
     image: 'https://res.cloudinary.com/dqidnnssq/image/upload/v1771239782/ceo_ukjbgd.jpg',
   },
   logo: '/images/jcl-royal-group.jpg',
+  motto: 'Get us your land and we will pre-finance your building',
   phones: [
-    { label: 'Primary / WhatsApp', number: '+233 55 786 0299', clean: '233557860299' },
-    { label: 'Office Line 1', number: '025 646 6565', clean: '0256466565' },
-    { label: 'Office Line 2', number: '053 110 1123', clean: '0531101123' },
-    { label: 'Office Line 3', number: '024 511 8310', clean: '0245118310' },
+    { label: 'Primary / WhatsApp', number: '055 266 6222', clean: '0552666222' },
+    { label: 'Office Line 1', number: '055 262 2226', clean: '0552622226' },
+    { label: 'Office Line 2', number: '055 266 6266', clean: '0552666266' },
   ],
-  email: 'jclroyals26@gmail.com',
-  address: 'Accra, Greater Accra Region, Ghana',
+  email: 'info@jclroyalgh.com',
+  address: 'New Bortiano, West Hills Mall - GCB, Adjacent GRA, Greater Accra, Ghana',
+  locationDetails: {
+    town: 'New Bortiano',
+    landmark: 'West Hills Mall - GCB, Adjacent GRA',
+    building: 'GCB Bank Building (Ground Floor), StarLife (1st Floor), JCL Royal Group (Top Floor)',
+    directions: 'Located at New Bortiano near West Hills Mall, in the GCB Bank building directly adjacent to the Ghana Revenue Authority (GRA) office.',
+  },
+  officeImages: [
+    {
+      src: '/images/office/office-building-1.jpg',
+      alt: 'JCL Royal Group Corporate Headquarters - Street View at New Bortiano',
+      title: 'Headquarters Building - New Bortiano',
+      caption: 'Main roadside view showing JCL sign, GCB Bank on ground floor, adjacent GRA & near West Hills Mall'
+    },
+    {
+      src: '/images/office/office-building-2.jpg',
+      alt: 'JCL Real Estate Facade with Contact Billboards',
+      title: 'Office Facade & Service Directory',
+      caption: 'Official facade with billboard displaying 0552 666 222, 0552 622 226, 0552 666 266'
+    },
+    {
+      src: '/images/office/office-building-4.jpg',
+      alt: 'JCL Corporate Entrance - Ground Floor GCB & StarLife',
+      title: 'Entrance & Customer Reception Floor',
+      caption: 'Direct entrance floor with parking and customer reception at New Bortiano'
+    },
+    {
+      src: '/images/office/office-building-3.jpg',
+      alt: 'JCL Office Enclave & Surrounding Neighbourhood',
+      title: 'Elevated View of Office Premises',
+      caption: 'Spacious visitor parking and commercial neighbourhood at New Bortiano'
+    }
+  ],
   social: {
     linkedin: 'https://www.linkedin.com/in/jclroyalgh',
-    tiktok: 'https://www.tiktok.com/@tonefo2',
-    whatsapp: 'https://wa.me/233557860299?text=Hello%20JCL%20Royal%20Group%20Team',
+    tiktok: 'https://www.tiktok.com/@jclrealestate',
+    whatsapp: 'https://wa.me/233552666222?text=Hello%20JCL%20Royal%20Group%20Team',
   }
 };
 
@@ -119,9 +151,9 @@ export const MOCK_AGENTS: Agent[] = [
     rating: 5.0,
     projectsSupervised: 520,
     image: 'https://res.cloudinary.com/dqidnnssq/image/upload/v1771239782/ceo_ukjbgd.jpg',
-    phone: '+233 55 786 0299',
-    email: 'jclroyals26@gmail.com',
-    bio: 'Visionary leadership spearheading nationwide real estate master-developments, litigation-free land allocation, and Tonefo gadget distribution.'
+    phone: '055 266 6222',
+    email: 'info@jclroyalgh.com',
+    bio: 'Visionary leadership spearheading nationwide real estate master-developments, litigation-free land allocation, and pre-financed turnkey building.'
   },
   {
     id: 'agent-account-manager',
@@ -131,8 +163,8 @@ export const MOCK_AGENTS: Agent[] = [
     rating: 5.0,
     projectsSupervised: 380,
     image: '/images/team/account-manager.jpg',
-    phone: '053 110 1123',
-    email: 'jclroyals26@gmail.com',
+    phone: '055 262 2226',
+    email: 'info@jclroyalgh.com',
     bio: 'Oversees client portfolio management, escrow facilitation, indenture documentation, and dedicated advisory for diaspora and resident investors.'
   },
   {
@@ -143,8 +175,8 @@ export const MOCK_AGENTS: Agent[] = [
     rating: 5.0,
     projectsSupervised: 453,
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-    phone: '025 646 6565',
-    email: 'jclroyals26@gmail.com',
+    phone: '055 266 6266',
+    email: 'info@jclroyalgh.com',
     bio: 'Over 12 years of specialized real estate advisory delivering exceptional architectural results for homeowners and institutional investors.'
   },
   {
@@ -155,8 +187,8 @@ export const MOCK_AGENTS: Agent[] = [
     rating: 5.0,
     projectsSupervised: 325,
     image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80',
-    phone: '053 110 1123',
-    email: 'jclroyals26@gmail.com',
+    phone: '055 262 2226',
+    email: 'info@jclroyalgh.com',
     bio: 'Expert in Lands Commission title verification, zoning compliance, and multi-acre land subdivision projects.'
   },
   {
@@ -167,8 +199,8 @@ export const MOCK_AGENTS: Agent[] = [
     rating: 5.0,
     projectsSupervised: 289,
     image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
-    phone: '024 511 8310',
-    email: 'jclroyals26@gmail.com',
+    phone: '055 266 6266',
+    email: 'info@jclroyalgh.com',
     bio: 'Leads structural planning and engineering oversight across high-density residential and commercial developments.'
   }
 ];
@@ -683,7 +715,7 @@ export const MOCK_FAQS: FAQItem[] = [
   {
     id: 'faq-3',
     question: 'What is the process for scheduling a site inspection?',
-    answer: 'Site inspections are conducted from Monday through Saturday. You can book an inspection directly via WhatsApp (+233 55 786 0299) or our online inquiry form. We provide transport from our office to the site with a certified surveyor on hand to confirm beacon boundaries.',
+    answer: 'Site inspections are conducted from Monday through Saturday. You can book an inspection directly via WhatsApp (055 266 6222) or our online inquiry form. We provide transport from our office in New Bortiano (West Hills Mall - GCB, Adjacent GRA) to the site with a certified surveyor on hand to confirm beacon boundaries.',
     category: 'Site Inspection'
   },
   {

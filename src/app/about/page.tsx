@@ -541,6 +541,177 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* ══════════════════════════════════════════════════════════════
+            9. PHYSICAL CORPORATE HEADQUARTERS & VISITOR GUIDE
+        ══════════════════════════════════════════════════════════════ */}
+        <section className="py-24 bg-[#F8FAFC] border-t border-slate-200/80">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+              <div className="space-y-3 max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#0466c8] border border-blue-100 text-xs font-bold uppercase tracking-wider">
+                  <Building2 className="w-3.5 h-3.5 text-[#FF5500]" />
+                  <span>Physical Corporate Presence</span>
+                </div>
+                <h3 className="text-3xl sm:text-4xl font-extrabold text-[#001845] tracking-tight">
+                  Visit Our Headquarters at <span className="text-[#0466c8]">New Bortiano</span>
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                  JCL Royal Group operates from our dedicated corporate commercial complex at New Bortiano near West Hills Mall, providing transparent, walk-in access for all land buyers, investors, and diaspora clients.
+                </p>
+              </div>
+
+              <div className="shrink-0">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0466c8] hover:bg-[#0353a4] text-white text-xs font-extrabold transition-all shadow-md"
+                >
+                  <span>Book In-Person Office Consultation</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              {/* Building Photos Bento (7 Cols) */}
+              <div className="lg:col-span-7 grid grid-cols-2 gap-4">
+                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-900 shadow-lg border border-slate-200 group">
+                  <Image
+                    src="/images/office/office-building-1.jpg"
+                    alt="JCL Royal Group Headquarters Street View"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <span className="absolute bottom-3 left-3 text-[11px] font-bold text-white drop-shadow">
+                    Roadside View • New Bortiano
+                  </span>
+                </div>
+
+                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-900 shadow-lg border border-slate-200 group">
+                  <Image
+                    src="/images/office/office-building-2.jpg"
+                    alt="JCL Real Estate Signage and Billboard"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <span className="absolute bottom-3 left-3 text-[11px] font-bold text-white drop-shadow">
+                    JCL Real Estate Billboard
+                  </span>
+                </div>
+
+                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-900 shadow-lg border border-slate-200 group">
+                  <Image
+                    src="/images/office/office-building-4.jpg"
+                    alt="GCB Bank Ground Floor & Customer Reception"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <span className="absolute bottom-3 left-3 text-[11px] font-bold text-white drop-shadow">
+                    Ground Floor • GCB Bank Landmark
+                  </span>
+                </div>
+
+                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-900 shadow-lg border border-slate-200 group">
+                  <Image
+                    src="/images/office/office-building-3.jpg"
+                    alt="Office Premises and Parking"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <span className="absolute bottom-3 left-3 text-[11px] font-bold text-white drop-shadow">
+                    Ample Visitor Parking Area
+                  </span>
+                </div>
+              </div>
+
+              {/* Landmark & Building Description Card (5 Cols) */}
+              <div className="lg:col-span-5 bg-white rounded-[32px] p-7 sm:p-8 border border-slate-200/90 shadow-xl space-y-6">
+                
+                <div className="space-y-1">
+                  <span className="text-[11px] font-extrabold text-[#FF5500] uppercase tracking-wider block">
+                    Recognize Our Premises
+                  </span>
+                  <h4 className="text-xl font-extrabold text-[#001845]">
+                    New Bortiano, West Hills Mall - GCB, Adjacent GRA
+                  </h4>
+                  <p className="text-xs text-slate-600 font-medium leading-relaxed pt-1">
+                    When arriving via the main road toward West Hills Mall, look out for the modern multi-level corporate building:
+                  </p>
+                </div>
+
+                <div className="space-y-3 border-y border-slate-100 py-4 text-xs font-semibold text-slate-700">
+                  <div className="flex items-start gap-3">
+                    <span className="w-5 h-5 rounded-full bg-blue-50 text-[#0466c8] flex items-center justify-center text-[10px] font-black shrink-0 mt-0.5">
+                      G
+                    </span>
+                    <div>
+                      <strong className="text-[#001845] block">Ground Floor:</strong>
+                      <span className="text-slate-600 font-medium">Active GCB Bank branch &amp; ATM gallery</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <span className="w-5 h-5 rounded-full bg-blue-50 text-[#0466c8] flex items-center justify-center text-[10px] font-black shrink-0 mt-0.5">
+                      1
+                    </span>
+                    <div>
+                      <strong className="text-[#001845] block">First Floor:</strong>
+                      <span className="text-slate-600 font-medium">StarLife Assurance offices</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <span className="w-5 h-5 rounded-full bg-blue-50 text-[#0466c8] flex items-center justify-center text-[10px] font-black shrink-0 mt-0.5">
+                      2
+                    </span>
+                    <div>
+                      <strong className="text-[#001845] block">Top Floor:</strong>
+                      <span className="text-slate-600 font-medium">JCL Royal Group Executive Suites &amp; Surveying Registry</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <span className="w-5 h-5 rounded-full bg-amber-50 text-[#FF5500] flex items-center justify-center text-[10px] font-black shrink-0 mt-0.5">
+                      ★
+                    </span>
+                    <div>
+                      <strong className="text-[#001845] block">Adjacent Landmark:</strong>
+                      <span className="text-slate-600 font-medium">Directly adjacent to Ghana Revenue Authority (GRA)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-2 text-xs">
+                  <div className="flex items-center justify-between text-slate-700">
+                    <span className="font-bold text-slate-500">Official Contact:</span>
+                    <span className="font-black text-[#001845]">055 266 6222 / 055 262 2226 / 055 266 6266</span>
+                  </div>
+                  <div className="flex items-center justify-between text-slate-700">
+                    <span className="font-bold text-slate-500">Direct Email:</span>
+                    <span className="font-bold text-[#0466c8]">info@jclroyalgh.com</span>
+                  </div>
+                  <div className="flex items-center justify-between text-slate-700">
+                    <span className="font-bold text-slate-500">Corporate Motto:</span>
+                    <span className="font-bold text-[#FF5500]">&quot;Get us your land &amp; we pre-finance your building&quot;</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
       </main>
 
       <Footer />

@@ -38,7 +38,7 @@ export default function FloatingActions({ onOpenInquiry }: FloatingActionsProps)
             </div>
             <div className="flex flex-col">
               <span>Chat on WhatsApp</span>
-              <span className="text-[10px] text-emerald-600 font-medium">+233 55 786 0299</span>
+              <span className="text-[10px] text-emerald-600 font-medium">055 266 6222</span>
             </div>
           </a>
 

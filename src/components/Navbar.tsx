@@ -138,7 +138,7 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
               className="hidden xl:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200/80 text-[11px] font-bold text-slate-700 hover:bg-slate-100 transition-colors"
             >
               <PhoneCall className="w-3 h-3 text-[#FF5500]" />
-              <span>055 786 0299</span>
+              <span>{COMPANY_INFO.phones[0].number}</span>
             </a>
 
             {/* Book Consultation Button (Desktop Only) */}
@@ -280,7 +280,7 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
                   className="w-full py-3 px-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs flex items-center justify-center space-x-2 shadow-sm transition-all"
                 >
                   <MessageCircle className="w-4 h-4 fill-white" />
-                  <span>Chat on WhatsApp (+233 55 786 0299)</span>
+                  <span>Chat on WhatsApp ({COMPANY_INFO.phones[0].number})</span>
                 </a>
 
                 {/* Direct Call Button */}
@@ -289,7 +289,7 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
                   className="w-full py-2.5 px-4 rounded-full bg-slate-100 hover:bg-slate-200 text-[#001845] font-bold text-xs flex items-center justify-center space-x-2 transition-all border border-slate-200/80"
                 >
                   <PhoneCall className="w-3.5 h-3.5 text-[#0466c8]" />
-                  <span>Call Lines: 055 786 0299 / 024 456 7890</span>
+                  <span>Call Lines: 055 266 6222 / 055 262 2226 / 055 266 6266</span>
                 </a>
               </div>
 

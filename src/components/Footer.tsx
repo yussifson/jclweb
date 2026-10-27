@@ -153,11 +153,11 @@ export default function Footer() {
               aria-label="TikTok"
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-slate-900 transition-all shadow-2xs font-semibold text-xs"
             >
-              <span>TikTok (@tonefo2)</span>
+              <span>TikTok (@jclrealestate)</span>
             </a>
           </div>
 
-          <p className="text-slate-500 font-medium">Accra &amp; Prampram, Greater Accra Region, Ghana</p>
+          <p className="text-slate-500 font-medium">New Bortiano, West Hills Mall (GCB, Adjacent GRA) • Prampram • Accra, Ghana</p>
         </div>
 
       </div>

@@ -82,7 +82,7 @@ export default function Home() {
               {/* Top Location & Accreditation Pill */}
               <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold uppercase tracking-wider shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-[#FF5500] animate-ping" />
-                <span>JCL Royal Group • Greater Accra &amp; Prampram</span>
+                <span>JCL Royal Group • New Bortiano, West Hills Mall • Prampram</span>
               </div>
 
               {/* Main Headline */}
@@ -815,6 +815,122 @@ export default function Home() {
               </div>
 
             </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════
+            CORPORATE HEADQUARTERS & PHYSICAL OFFICE SHOWCASE
+        ══════════════════════════════════════════════════════════════ */}
+        <section className="py-20 bg-white border-t border-slate-200/80">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+              <div className="space-y-2 max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-[#0466c8] text-xs font-bold uppercase tracking-wider">
+                  <Building2 className="w-3.5 h-3.5 text-[#FF5500]" />
+                  <span>Physical Office &amp; Headquarters</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#001845] tracking-tight">
+                  Visit Our Headquarters in <span className="text-[#0466c8]">New Bortiano</span>
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                  Located near West Hills Mall — in the GCB Bank building, adjacent to Ghana Revenue Authority (GRA). Walk in for verified cadastral plans, pre-financed building consultations, and site inspections.
+                </p>
+              </div>
+
+              <div className="shrink-0">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#0466c8] hover:bg-[#0353a4] text-white font-extrabold text-xs transition-all shadow-md hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  <span>View Full Landmark Guide &amp; Photos</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#F8FAFC] rounded-[36px] p-6 sm:p-8 lg:p-10 border border-slate-200/90 shadow-lg">
+              
+              {/* Photo Showcase (7 Cols) */}
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="relative aspect-[16/11] rounded-2xl overflow-hidden bg-slate-900 shadow-md group">
+                  <Image
+                    src="/images/office/office-building-1.jpg"
+                    alt="JCL Royal Group Headquarters at New Bortiano"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+                  <span className="absolute bottom-3 left-3 text-[11px] font-bold text-white drop-shadow">
+                    Roadside View • New Bortiano
+                  </span>
+                </div>
+
+                <div className="relative aspect-[16/11] rounded-2xl overflow-hidden bg-slate-900 shadow-md group">
+                  <Image
+                    src="/images/office/office-building-2.jpg"
+                    alt="JCL Office Facade with Contact Billboards"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+                  <span className="absolute bottom-3 left-3 text-[11px] font-bold text-white drop-shadow">
+                    Official Billboard: 0552 666 222
+                  </span>
+                </div>
+              </div>
+
+              {/* Landmark Highlights & Direct Info (5 Cols) */}
+              <div className="lg:col-span-5 space-y-5">
+                <div className="space-y-2">
+                  <span className="text-[11px] font-black text-[#FF5500] uppercase tracking-wider block">
+                    Immediate Physical Landmarks
+                  </span>
+                  <h3 className="text-xl font-extrabold text-[#001845]">
+                    New Bortiano, West Hills Mall - GCB, Adjacent GRA
+                  </h3>
+                  <p className="text-xs text-slate-600 font-medium leading-relaxed">
+                    Spot the multi-storey corporate building with GCB Bank on the ground floor, StarLife on the middle floor, and JCL Real Estate on the top floor.
+                  </p>
+                </div>
+
+                <div className="space-y-2.5 pt-2 border-t border-slate-200 text-xs">
+                  <div className="flex items-center gap-2.5 text-slate-700">
+                    <span className="w-2 h-2 rounded-full bg-[#0466c8]" />
+                    <span className="font-bold">Motto:</span>
+                    <span className="font-medium text-slate-600">&ldquo;Get us your land &amp; we pre-finance your building&rdquo;</span>
+                  </div>
+
+                  <div className="flex items-center gap-2.5 text-slate-700">
+                    <span className="w-2 h-2 rounded-full bg-emerald-600" />
+                    <span className="font-bold">New Phone Lines:</span>
+                    <span className="font-black text-[#001845]">055 266 6222 / 055 262 2226 / 055 266 6266</span>
+                  </div>
+
+                  <div className="flex items-center gap-2.5 text-slate-700">
+                    <span className="w-2 h-2 rounded-full bg-[#FF5500]" />
+                    <span className="font-bold">Official Email:</span>
+                    <span className="font-bold text-[#0466c8]">info@jclroyalgh.com</span>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <a
+                    href="https://wa.me/233552666222?text=Hello%20JCL%20Royal%20Group%20Team,%20I%20would%20like%20to%20visit%20your%20office%20at%20New%20Bortiano"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3.5 px-5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs flex items-center justify-center space-x-2 shadow-md transition-all hover:scale-[1.01]"
+                  >
+                    <MessageCircle className="w-4 h-4 fill-white" />
+                    <span>WhatsApp Our New Bortiano Office (055 266 6222)</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
           </div>
         </section>
 
